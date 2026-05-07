@@ -30,4 +30,8 @@ secret.h
 
 # no source files allowed in final repo
 *.c
-*.h 
+*.h
+
+# Claude Code - local only, never push
+CLAUDE.md
+.claude/

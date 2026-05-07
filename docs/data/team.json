@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Team Member 1",
+    "role": "Firmware & Hardware Lead",
+    "photo": "assets/images/team/member-1.webp",
+    "bio": "Brief bio placeholder.",
+    "github": "https://github.com/username",
+    "email": "mailto:student@upenn.edu",
+    "contributions": ["PCB design", "SAM D21 firmware", "Sensor integration"]
+  },
+  {
+    "name": "Team Member 2",
+    "role": "Cloud & Dashboard Lead",
+    "photo": "assets/images/team/member-2.webp",
+    "bio": "Brief bio placeholder.",
+    "github": "https://github.com/username",
+    "email": "mailto:student@upenn.edu",
+    "contributions": ["AWS IoT setup", "Node-RED dashboard", "MQTT broker"]
+  }
+]

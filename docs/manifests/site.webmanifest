@@ -1,0 +1,12 @@
+{
+  "name": "ESE516 - Team CyberRod IoT Project",
+  "short_name": "CyberRod",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#011F5B",
+  "theme_color": "#011F5B",
+  "icons": [
+    { "src": "assets/images/icons/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "assets/images/icons/apple-touch.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

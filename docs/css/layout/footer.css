@@ -1,0 +1,21 @@
+.site-footer {
+  background-color: var(--color-primary);
+  color: rgba(255, 255, 255, 0.8);
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+}
+
+.site-footer p {
+  font-size: var(--text-sm);
+  max-width: none;
+  margin-inline: auto;
+}
+
+.site-footer a {
+  color: var(--color-accent);
+  transition: color var(--transition-fast);
+}
+
+.site-footer a:hover {
+  color: #fff;
+}

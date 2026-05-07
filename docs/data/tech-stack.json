@@ -1,0 +1,10 @@
+[
+  { "name": "SAM D21", "category": "hardware", "description": "ARM Cortex-M0+ Microcontroller" },
+  { "name": "C / Atmel Studio", "category": "firmware", "description": "Embedded firmware development" },
+  { "name": "Wi-Fi Module", "category": "communication", "description": "Wireless connectivity" },
+  { "name": "MQTT", "category": "protocol", "description": "Lightweight messaging protocol" },
+  { "name": "AWS IoT Core", "category": "cloud", "description": "Cloud IoT platform" },
+  { "name": "Node-RED", "category": "dashboard", "description": "Flow-based programming for IoT" },
+  { "name": "DHT22", "category": "sensor", "description": "Temperature & humidity sensor" },
+  { "name": "FreeRTOS", "category": "rtos", "description": "Real-time operating system" }
+]
