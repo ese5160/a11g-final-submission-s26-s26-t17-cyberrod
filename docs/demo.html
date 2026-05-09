@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-page="demo">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Project Demo - CyberRod IoT Smart Fishing Rod Monitor">
+  <meta name="theme-color" content="#011F5B">
+  <title>Demo | CyberRod - ESE516</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/icons/logo.svg">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="loader">
+    <div class="loader__glow"></div>
+    <div class="loader__logo">
+      <img src="assets/images/icons/logo.svg" alt="CyberRod" width="64" height="64">
+      <span class="loader__logo-text">CyberRod</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-icon"><img src="assets/images/icons/logo.svg" alt="" width="24" height="24"></span>
+        <span class="nav__logo-text">CyberRod</span>
+      </a>
+      <button class="nav__toggle" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="architecture.html" class="nav__link">Architecture</a></li>
+        <li><a href="hardware.html" class="nav__link">Hardware</a></li>
+        <li><a href="software.html" class="nav__link">Software</a></li>
+        <li><a href="demo.html" class="nav__link nav__link--active">Demo</a></li>
+        <li><a href="team.html" class="nav__link">Team</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" style="padding-top:80px;">
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-hero__title">Project Demo</h1>
+        <p class="page-hero__subtitle">Watch CyberRod in action — from fish detection to cloud dashboard.</p>
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a> <span>/</span> <span>Demo</span>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Video Demo -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Video Demonstration</h2>
+        <p class="section__subtitle">Full walkthrough of the CyberRod smart fishing rod monitoring system.</p>
+
+        <div class="video-container">
+          <div class="video-embed" id="demo-video">
+            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--border-radius-lg);background:var(--color-primary);">
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:var(--space-md);">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1">
+                  <circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="rgba(255,255,255,0.3)"/>
+                </svg>
+                <p style="color:rgba(255,255,255,0.5);font-size:var(--text-sm);">Video coming soon — link will be added here</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- System in Action -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section-title">System in Action</h2>
+        <p class="section__subtitle">Step-by-step demonstration of CyberRod's real-time operation.</p>
+
+        <div class="demo-steps">
+          <div class="demo-step">
+            <div class="demo-step__number">01</div>
+            <div class="demo-step__content">
+              <h3 class="demo-step__title">Fish Proximity Detection</h3>
+              <p class="demo-step__text">The ultrasonic distance sensor continuously monitors for fish proximity. When an object enters the 300mm range, the system classifies it as "Near". Within 100mm, it triggers a "Very Near" alert.</p>
+              <div class="demo-step__tags">
+                <span class="badge badge--primary">UART1</span>
+                <span class="badge">9600 baud</span>
+                <span class="badge">4-byte frames</span>
+              </div>
+            </div>
+          </div>
+          <div class="demo-step">
+            <div class="demo-step__number">02</div>
+            <div class="demo-step__content">
+              <h3 class="demo-step__title">Environmental Sensing</h3>
+              <p class="demo-step__text">Every 3 seconds, the SHT4x sensor takes a high-repeatability measurement. Temperature and humidity readings are validated with CRC-8 before being queued for transmission.</p>
+              <div class="demo-step__tags">
+                <span class="badge badge--primary">I2C0</span>
+                <span class="badge">SHT4x</span>
+                <span class="badge">CRC-8</span>
+              </div>
+            </div>
+          </div>
+          <div class="demo-step">
+            <div class="demo-step__number">03</div>
+            <div class="demo-step__content">
+              <h3 class="demo-step__title">MQTT Data Transmission</h3>
+              <p class="demo-step__text">Sensor data is published to Azure VM's MQTT broker (20.230.132.231:1883) on four topics: Fish_detection, Distance, Temperature, and Humidity. The 16-deep queue ensures no data loss.</p>
+              <div class="demo-step__tags">
+                <span class="badge badge--secondary">MQTT</span>
+                <span class="badge badge--secondary">Azure</span>
+                <span class="badge">16-deep queue</span>
+              </div>
+            </div>
+          </div>
+          <div class="demo-step">
+            <div class="demo-step__number">04</div>
+            <div class="demo-step__content">
+              <h3 class="demo-step__title">Dashboard Visualization</h3>
+              <p class="demo-step__text">Node-RED FlowFuse Dashboard 2.0 subscribes to all CyberRod MQTT topics and renders real-time gauges, charts, and status indicators with a custom nautical-themed CSS design.</p>
+              <div class="demo-step__tags">
+                <span class="badge badge--secondary">Node-RED</span>
+                <span class="badge badge--secondary">FlowFuse 2.0</span>
+              </div>
+            </div>
+          </div>
+          <div class="demo-step">
+            <div class="demo-step__number">05</div>
+            <div class="demo-step__content">
+              <h3 class="demo-step__title">OTA Firmware Update</h3>
+              <p class="demo-step__text">Sending "1" to the CyberRod/Update MQTT topic triggers an over-the-air firmware update. The Si917 downloads the new firmware via HTTP OTAF v2 from the Azure VM.</p>
+              <div class="demo-step__tags">
+                <span class="badge">HTTP OTAF v2</span>
+                <span class="badge">Remote Update</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Metrics -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Key Metrics</h2>
+        <p class="section__subtitle">Performance parameters of the CyberRod system.</p>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-card__value" data-counter="300" data-suffix="mm">0mm</div>
+            <div class="metric-card__label">Fish Detection Range</div>
+            <div class="metric-card__desc">Maximum ultrasonic sensing distance</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-card__value" data-counter="3" data-suffix="s">0s</div>
+            <div class="metric-card__label">Sampling Interval</div>
+            <div class="metric-card__desc">Temperature & humidity readout period</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-card__value" data-counter="5" data-suffix="">0</div>
+            <div class="metric-card__label">FreeRTOS Tasks</div>
+            <div class="metric-card__desc">Concurrent real-time tasks</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-card__value" data-counter="4" data-suffix="">0</div>
+            <div class="metric-card__label">MQTT Topics</div>
+            <div class="metric-card__desc">Real-time data channels</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section-title">Screenshots</h2>
+        <p class="section__subtitle">System operation captures from the Node-RED dashboard and device.</p>
+
+        <div class="screenshots-grid">
+          <div class="screenshot-card">
+            <div class="screenshot-card__image">
+              <div class="screenshot-placeholder">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/>
+                </svg>
+              </div>
+            </div>
+            <div class="screenshot-card__caption">Node-RED Dashboard Overview</div>
+          </div>
+          <div class="screenshot-card">
+            <div class="screenshot-card__image">
+              <div class="screenshot-placeholder">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/>
+                </svg>
+              </div>
+            </div>
+            <div class="screenshot-card__caption">Fish Detection Status</div>
+          </div>
+          <div class="screenshot-card">
+            <div class="screenshot-card__image">
+              <div class="screenshot-placeholder">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/>
+                </svg>
+              </div>
+            </div>
+            <div class="screenshot-card__caption">Temperature Monitoring</div>
+          </div>
+          <div class="screenshot-card">
+            <div class="screenshot-card__image">
+              <div class="screenshot-placeholder">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/>
+                </svg>
+              </div>
+            </div>
+            <div class="screenshot-card__caption">OTA Firmware Update</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__content">
+        <p class="footer__brand">CyberRod</p>
+        <p>ESE516 - Internet of Things for Embedded Systems | University of Pennsylvania</p>
+        <p class="footer__team">Team s26-s26-t17-cyberrod | Spring 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -3,34 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ESE516 IoT Embedded Systems Final Project - Team CyberRod showcase">
+  <meta name="description" content="CyberRod - Smart Fishing Rod IoT Monitor | ESE516 UPenn Final Project">
   <meta name="theme-color" content="#011F5B">
 
-  <title>CyberRod | ESE516 - UPenn</title>
+  <title>CyberRod | Smart Fishing Rod IoT Monitor - ESE516 UPenn</title>
 
-  <link rel="preload" href="assets/fonts/inter/inter-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
+  <!-- Preload critical assets -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/icons/logo.svg">
   <link rel="apple-touch-icon" href="assets/images/icons/apple-touch.png">
   <link rel="manifest" href="manifests/site.webmanifest">
-
-  <!-- AOS Scroll Animations -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <div class="loader">
+    <div class="loader__glow"></div>
+    <div class="loader__logo">
+      <img src="assets/images/icons/logo.svg" alt="CyberRod" width="64" height="64">
+      <span class="loader__logo-text">CyberRod</span>
+    </div>
+  </div>
+
   <header class="site-header">
     <nav class="nav" aria-label="Main navigation">
-      <a href="index.html" class="nav__logo">CyberRod</a>
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-icon"><img src="assets/images/icons/logo.svg" alt="" width="24" height="24"></span>
+        <span class="nav__logo-text">CyberRod</span>
+      </a>
       <button class="nav__toggle" aria-label="Toggle menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
         </svg>
       </button>
       <ul class="nav__links">
-        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="index.html" class="nav__link nav__link--active">Home</a></li>
         <li><a href="architecture.html" class="nav__link">Architecture</a></li>
         <li><a href="hardware.html" class="nav__link">Hardware</a></li>
         <li><a href="software.html" class="nav__link">Software</a></li>
@@ -44,14 +52,26 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero__particles"></div>
+      <div class="hero__grid-overlay"></div>
       <div class="hero__content">
-        <span class="hero__badge">ESE516 - IoT for Embedded Systems</span>
-        <h1 class="hero__title" data-typewriter>Building the Future of IoT</h1>
-        <p class="hero__subtitle">An intelligent embedded system that bridges hardware and cloud for real-time IoT data processing and visualization.</p>
+        <span class="hero__badge">ESE516 - IoT for Embedded Systems | Spring 2026</span>
+        <h1 class="hero__title" data-typewriter>CyberRod</h1>
+        <p class="hero__subtitle">An intelligent IoT-enabled smart fishing rod monitoring system with real-time fish detection, environmental sensing, and cloud-connected dashboard visualization.</p>
+        <div class="hero__tech-pills">
+          <span class="hero__pill">Si917</span>
+          <span class="hero__pill">FreeRTOS</span>
+          <span class="hero__pill">MQTT</span>
+          <span class="hero__pill">Azure</span>
+          <span class="hero__pill">Node-RED</span>
+        </div>
         <div class="hero__actions">
           <a href="demo.html" class="btn btn--secondary">View Demo</a>
-          <a href="architecture.html" class="btn btn--outline" style="border-color:#fff;color:#fff;">Learn More</a>
+          <a href="architecture.html" class="btn btn--outline" style="border-color:#fff;color:#fff;">Explore System</a>
         </div>
+      </div>
+      <div class="hero__scroll-indicator">
+        <span>Scroll to explore</span>
+        <div class="hero__scroll-arrow"></div>
       </div>
     </section>
 
@@ -59,24 +79,86 @@
     <section class="features section">
       <div class="container">
         <div class="section__header">
-          <h2 class="section-title" data-aos="fade-up">Key Features</h2>
-          <p class="section__subtitle" data-aos="fade-up" data-aos-delay="100">Explore the core capabilities of our IoT embedded system project.</p>
+          <h2 class="section-title">Core Capabilities</h2>
+          <p class="section__subtitle">Three integrated systems working together for intelligent fishing rod monitoring.</p>
         </div>
         <div class="features__grid">
-          <div class="card" data-aos="fade-up" data-aos-delay="0">
-            <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 004.5 7.5v9a2.25 2.25 0 002.25 2.25z"/></svg>
-            <h3 class="card__title">Embedded Firmware</h3>
-            <p class="card__text">Custom C firmware for SAM D21 microcontroller with sensor integration and wireless communication.</p>
+          <div class="card card--feature">
+            <div class="card__icon-wrapper card__icon-wrapper--fish">
+              <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6.5 12c0-3.5 3-7 7.5-7 1 0 2 .2 3 .6C15 3.5 12.5 2 9.5 2 5.5 2 2.5 5.5 2.5 9c0 2 .8 3.8 2.2 5"/>
+                <path d="M20 7l3-2v10l-3-2"/>
+                <path d="M10 15l2 4M14 15l2 4"/>
+                <circle cx="9.5" cy="9" r="1" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Smart Fish Detection</h3>
+            <p class="card__text">Ultrasonic distance sensor continuously monitors fish proximity, classifying targets as Near (&lt;300mm) or Very Near (&lt;100mm) with real-time state publishing.</p>
           </div>
-          <div class="card" data-aos="fade-up" data-aos-delay="100">
-            <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/></svg>
-            <h3 class="card__title">Cloud Connectivity</h3>
-            <p class="card__text">MQTT-based cloud integration with AWS IoT Core for real-time data streaming and remote monitoring.</p>
+          <div class="card card--feature">
+            <div class="card__icon-wrapper card__icon-wrapper--temp">
+              <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/>
+                <circle cx="11.5" cy="17.5" r="1.5" fill="currentColor"/>
+                <path d="M11.5 17.5V8M11.5 14v1"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Environmental Monitoring</h3>
+            <p class="card__text">Sensirion SHT4x sensor provides precision temperature and humidity readings via I2C with CRC-8 validation, sampled every 3 seconds.</p>
           </div>
-          <div class="card" data-aos="fade-up" data-aos-delay="200">
-            <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605"/></svg>
-            <h3 class="card__title">Node-RED Dashboard</h3>
-            <p class="card__text">Interactive web dashboard built with Node-RED for real-time sensor data visualization and device control.</p>
+          <div class="card card--feature">
+            <div class="card__icon-wrapper card__icon-wrapper--cloud">
+              <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/>
+                <path d="M12 12v4M12 16l-2-2M12 16l2-2"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Azure Cloud Pipeline</h3>
+            <p class="card__text">Full MQTT pipeline from Si917 MCU through Azure VM to Node-RED dashboard with real-time data streaming, OTA firmware updates, and persistent monitoring.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section-title">Built With</h2>
+          <p class="section__subtitle">The complete technology stack powering CyberRod.</p>
+        </div>
+        <div class="tech-grid">
+          <div class="tech-item">
+            <span class="tech-item__name">Si917</span>
+            <span class="tech-item__desc">ARM Cortex-M4F Wireless MCU</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-item__name">FreeRTOS</span>
+            <span class="tech-item__desc">Real-Time Operating System</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-item__name">MQTT</span>
+            <span class="tech-item__desc">Lightweight Messaging Protocol</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-item__name">Azure VM</span>
+            <span class="tech-item__desc">Cloud Hosting & MQTT Broker</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-item__name">Node-RED</span>
+            <span class="tech-item__desc">FlowFuse Dashboard 2.0</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-item__name">SHT4x</span>
+            <span class="tech-item__desc">Sensirion Temp & Humidity</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-item__name">OTA</span>
+            <span class="tech-item__desc">Over-The-Air Firmware Update</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-item__name">Wi-Fi</span>
+            <span class="tech-item__desc">802.11 b/g/n 2.4 GHz</span>
           </div>
         </div>
       </div>
@@ -84,9 +166,9 @@
 
     <!-- CTA Section -->
     <section class="container">
-      <div class="cta" data-aos="fade-up">
-        <h2 class="cta__title section-title" style="color:#fff;">Ready to Explore?</h2>
-        <p class="cta__text">Discover how our team designed and built a complete IoT embedded system from hardware to cloud.</p>
+      <div class="cta">
+        <h2 class="cta__title section-title" style="color:#fff;">Explore the System</h2>
+        <p class="cta__text">Discover how our team designed and built a complete IoT embedded system — from Si917 firmware to Azure cloud dashboard.</p>
         <div style="display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;">
           <a href="architecture.html" class="btn btn--secondary">System Architecture</a>
           <a href="demo.html" class="btn btn--outline" style="border-color:#fff;color:#fff;">Watch Demo</a>
@@ -97,13 +179,18 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>ESE516 - Internet of Things for Embedded Systems | University of Pennsylvania | Team CyberRod</p>
+      <div class="footer__content">
+        <p class="footer__brand">CyberRod</p>
+        <p>ESE516 - Internet of Things for Embedded Systems | University of Pennsylvania</p>
+        <p class="footer__team">Team s26-s26-t17-cyberrod | Spring 2026</p>
+      </div>
     </div>
   </footer>
 
-  <!-- AOS -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>AOS.init({ offset: 200, duration: 600, once: true });</script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
   <script type="module" src="js/main.js"></script>
 </body>
 </html>

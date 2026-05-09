@@ -1,52 +1,142 @@
+/* Architecture Page Styles */
+
+/* Override inline padding-top on main */
+main[style*="padding-top"] {
+  padding-top: 0 !important;
+}
+
+.page-hero {
+  padding: 8rem var(--space-lg) var(--space-xl);
+  background: var(--gradient-dark);
+  color: #fff;
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
+
+.page-hero__title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: var(--space-sm);
+  letter-spacing: var(--tracking-tight);
+}
+
+.page-hero__subtitle {
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 600px;
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+}
+
+.breadcrumb {
+  margin-top: var(--space-md);
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.35);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.breadcrumb a {
+  color: var(--color-accent);
+}
+
+.breadcrumb span {
+  color: rgba(255, 255, 255, 0.3);
+}
+
 .architecture-diagram {
   text-align: center;
   padding: var(--space-xl);
-  background: var(--color-surface);
+  background: var(--gradient-dark);
   border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  position: relative;
+}
+
+.architecture-diagram::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 50% at 30% 70%, rgba(var(--color-accent-rgb), 0.06), transparent),
+    radial-gradient(ellipse 40% 40% at 80% 30%, rgba(var(--color-sky-rgb), 0.04), transparent);
 }
 
 .architecture-diagram svg {
   max-width: 100%;
   height: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .architecture-flow {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: var(--space-lg);
   margin-top: var(--space-xl);
 }
 
 .flow-card {
-  text-align: center;
+  text-align: left;
   padding: var(--space-lg);
   background: var(--color-surface);
-  border-radius: var(--border-radius);
-  border: 2px solid transparent;
-  transition: var(--transition-base);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.flow-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--gradient-accent);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
 }
 
 .flow-card:hover {
-  border-color: var(--color-accent);
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(var(--color-accent-rgb), 0.2);
 }
 
-.flow-card__icon {
-  width: 48px;
-  height: 48px;
-  margin-inline: auto;
-  margin-bottom: var(--space-md);
-  color: var(--color-accent);
+.flow-card:hover::before {
+  opacity: 1;
+}
+
+.flow-card__number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: rgba(var(--color-primary-rgb), 0.06);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-sm);
 }
 
 .flow-card__title {
   font-size: var(--text-lg);
-  margin-bottom: var(--space-xs);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  color: var(--color-primary);
+  letter-spacing: var(--tracking-normal);
 }
 
 .flow-card__text {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+}
+
+.flow-card__tags {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  margin-top: var(--space-md);
 }

@@ -1,0 +1,9 @@
+[
+  { "date": "2026-03-26", "title": "Project Kickoff", "description": "GitHub Classroom repository created from ESE516 template" },
+  { "date": "2026-04-01", "title": "Deadline & Planning", "description": "Project requirements finalized, hardware selected (Si917 BRD2708A), architecture designed" },
+  { "date": "2026-04-06", "title": "Core Firmware Complete", "description": "Fish detection task, temperature upload task, and OTA firmware update implementation merged" },
+  { "date": "2026-04-12", "title": "Cloud Infrastructure", "description": "Azure VM deployed, MQTT broker configured, Node-RED dashboard v1 operational" },
+  { "date": "2026-04-28", "title": "Dashboard v5-v6 Release", "description": "Node-RED dashboard redesigned with nautical theme, 7 custom visualization templates, gradient CSS" },
+  { "date": "2026-05-07", "title": "Firmware Submission (A09)", "description": "Final firmware revision submitted with all sensor drivers, safety systems, and OTA functionality" },
+  { "date": "2026-05-09", "title": "Final Submission", "description": "Complete project submission including firmware, documentation, and showcase website" }
+]

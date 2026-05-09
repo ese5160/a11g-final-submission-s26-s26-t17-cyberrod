@@ -1,8 +1,41 @@
 .site-footer {
-  background-color: var(--color-primary);
-  color: rgba(255, 255, 255, 0.8);
-  padding: var(--space-xl) var(--space-lg);
+  background: var(--gradient-dark);
+  color: rgba(255, 255, 255, 0.4);
+  padding: var(--space-section) var(--space-lg);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 60% at 25% 80%, rgba(109, 174, 69, 0.03), transparent),
+    radial-gradient(ellipse 40% 50% at 75% 20%, rgba(56, 189, 248, 0.02), transparent);
+}
+
+.footer__content {
+  position: relative;
+  z-index: 1;
+}
+
+.footer__brand {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: var(--space-sm);
+  letter-spacing: var(--tracking-normal);
+}
+
+.footer__team {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.25);
+  margin-top: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-ultra);
+  font-weight: 500;
 }
 
 .site-footer p {
@@ -13,7 +46,7 @@
 
 .site-footer a {
   color: var(--color-accent);
-  transition: color var(--transition-fast);
+  transition: color var(--transition-base);
 }
 
 .site-footer a:hover {

@@ -1,17 +1,17 @@
 [
   {
-    "icon": "cpu",
-    "title": "Embedded Firmware",
-    "description": "Custom C firmware for SAM D21 microcontroller with sensor integration and wireless communication."
+    "icon": "fish",
+    "title": "Smart Fish Detection",
+    "description": "Real-time ultrasonic distance sensing with intelligent proximity classification. Detects fish presence within 300mm and classifies as Near or Very Near states."
+  },
+  {
+    "icon": "temperature",
+    "title": "Environmental Monitoring",
+    "description": "Sensirion SHT4x sensor provides precision temperature and humidity readings via I2C with CRC-8 validation, sampled every 3 seconds."
   },
   {
     "icon": "cloud",
-    "title": "Cloud Connectivity",
-    "description": "MQTT-based cloud integration with AWS IoT Core for real-time data streaming and remote monitoring."
-  },
-  {
-    "icon": "dashboard",
-    "title": "Node-RED Dashboard",
-    "description": "Interactive web dashboard built with Node-RED for real-time sensor data visualization and device control."
+    "title": "Azure Cloud Pipeline",
+    "description": "Full MQTT pipeline from Si917 MCU through Azure VM to Node-RED dashboard with real-time data streaming, OTA firmware updates, and persistent storage."
   }
 ]

@@ -2,20 +2,52 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
-  padding: var(--space-xs) var(--space-sm);
-  border-radius: 999px;
-  font-size: var(--text-xs);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--border-radius-full);
+  font-size: 0.68rem;
   font-weight: 600;
-  background: rgba(109, 174, 69, 0.1);
-  color: var(--color-accent);
+  background: rgba(109, 174, 69, 0.08);
+  color: var(--color-accent-dark);
+  letter-spacing: 0.02em;
+  transition: all 0.3s var(--ease-out-expo);
+  border: 1px solid rgba(109, 174, 69, 0.08);
+}
+
+.badge:hover {
+  background: rgba(109, 174, 69, 0.14);
+  border-color: rgba(109, 174, 69, 0.15);
+  transform: translateY(-1px);
 }
 
 .badge--primary {
-  background: rgba(1, 31, 91, 0.1);
+  background: rgba(1, 31, 91, 0.06);
   color: var(--color-primary);
+  border-color: rgba(1, 31, 91, 0.06);
+}
+
+.badge--primary:hover {
+  background: rgba(1, 31, 91, 0.12);
+  border-color: rgba(1, 31, 91, 0.12);
 }
 
 .badge--secondary {
-  background: rgba(153, 0, 0, 0.1);
+  background: rgba(153, 0, 0, 0.06);
   color: var(--color-secondary);
+  border-color: rgba(153, 0, 0, 0.06);
+}
+
+.badge--secondary:hover {
+  background: rgba(153, 0, 0, 0.12);
+  border-color: rgba(153, 0, 0, 0.12);
+}
+
+.badge--sky {
+  background: rgba(56, 189, 248, 0.08);
+  color: #0284C7;
+  border-color: rgba(56, 189, 248, 0.08);
+}
+
+.badge--sky:hover {
+  background: rgba(56, 189, 248, 0.14);
+  border-color: rgba(56, 189, 248, 0.15);
 }

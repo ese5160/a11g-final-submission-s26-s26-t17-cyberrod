@@ -1,10 +1,12 @@
 [
-  { "name": "SAM D21", "category": "hardware", "description": "ARM Cortex-M0+ Microcontroller" },
-  { "name": "C / Atmel Studio", "category": "firmware", "description": "Embedded firmware development" },
-  { "name": "Wi-Fi Module", "category": "communication", "description": "Wireless connectivity" },
-  { "name": "MQTT", "category": "protocol", "description": "Lightweight messaging protocol" },
-  { "name": "AWS IoT Core", "category": "cloud", "description": "Cloud IoT platform" },
-  { "name": "Node-RED", "category": "dashboard", "description": "Flow-based programming for IoT" },
-  { "name": "DHT22", "category": "sensor", "description": "Temperature & humidity sensor" },
-  { "name": "FreeRTOS", "category": "rtos", "description": "Real-time operating system" }
+  { "name": "Si917 (SIWG917Y111MGABA)", "category": "hardware", "description": "ARM Cortex-M4F wireless MCU with built-in Wi-Fi on BRD2708A dev board" },
+  { "name": "C / Simplicity Studio", "category": "firmware", "description": "Embedded C firmware with Silicon Labs Simplicity SDK 2025.6.3 + WiseConnect 3 SDK 3.5.2" },
+  { "name": "Si917 Integrated Wi-Fi", "category": "communication", "description": "2.4 GHz 802.11 b/g/n with WPA2 security, DHCP client mode" },
+  { "name": "MQTT 3.1.1", "category": "protocol", "description": "Custom lightweight MQTT client over BSD sockets with 16-deep publish queue and auto-reconnect" },
+  { "name": "Azure VM", "category": "cloud", "description": "Azure cloud VM (20.230.132.231) hosting MQTT broker and HTTP OTAF server" },
+  { "name": "Node-RED + FlowFuse 2.0", "category": "dashboard", "description": "Real-time IoT dashboard with custom nautical-themed CSS and sensor visualization widgets" },
+  { "name": "SHT4x (Sensirion)", "category": "sensor", "description": "I2C temperature & humidity sensor with CRC-8 validation, high repeatability mode" },
+  { "name": "Ultrasonic Distance Sensor", "category": "sensor", "description": "UART-based proximity sensor with 4-byte frame protocol for fish detection (9600 baud)" },
+  { "name": "FreeRTOS (heap_4)", "category": "rtos", "description": "Real-time multitasking with 5 concurrent tasks, watchdog monitoring, and stack overflow protection" },
+  { "name": "HTTP OTAF v2", "category": "ota", "description": "Over-the-air firmware updates triggered via MQTT, downloaded via HTTP from Azure VM" }
 ]

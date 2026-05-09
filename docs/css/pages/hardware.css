@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-lg);
+  margin-top: var(--space-xl);
 }
 
 @media (max-width: 768px) {
@@ -12,12 +13,13 @@
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  transition: var(--transition-base);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .hardware-photo:hover {
-  box-shadow: var(--shadow-lg);
-  transform: scale(1.02);
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
 }
 
 .hardware-photo img {
@@ -40,21 +42,59 @@
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
+  margin-top: var(--space-lg);
 }
 
 .bom-table th,
 .bom-table td {
-  padding: var(--space-sm) var(--space-md);
+  padding: 0.75rem 1rem;
   text-align: left;
   font-size: var(--text-sm);
 }
 
 .bom-table th {
-  background: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   color: #fff;
   font-weight: 600;
+  letter-spacing: var(--tracking-wide);
 }
 
 .bom-table tr:nth-child(even) {
-  background: rgba(0, 0, 0, 0.02);
+  background: var(--color-surface-alt);
+}
+
+.bom-table tr {
+  transition: background var(--transition-fast);
+}
+
+.bom-table tr:hover {
+  background: rgba(var(--color-accent-rgb), 0.06);
+}
+
+/* Pin config table variant */
+.pin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-lg);
+}
+
+.pin-table th,
+.pin-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: var(--text-sm);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.pin-table th {
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-ultra);
+}
+
+.pin-table tr:hover {
+  background: rgba(var(--color-accent-rgb), 0.06);
 }

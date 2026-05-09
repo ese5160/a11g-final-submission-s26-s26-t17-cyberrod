@@ -17,11 +17,13 @@ export function initNavigation() {
     });
   }
 
-  // Active link highlighting
-  const currentPage = location.pathname.split('/').pop() || 'index.html';
+  // Active link highlighting (handles both .html and clean URLs)
+  const pathEnd = location.pathname.split('/').pop() || 'index.html';
+  const currentPage = pathEnd.replace('.html', '') || 'index';
   document.querySelectorAll('.nav__link').forEach(link => {
     const href = link.getAttribute('href');
-    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+    const hrefClean = href.replace('.html', '').replace('index', 'index');
+    if (href === pathEnd || href === currentPage + '.html' || hrefClean === currentPage || (currentPage === 'index' && href === 'index.html')) {
       link.classList.add('active');
     }
   });

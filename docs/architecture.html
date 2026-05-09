@@ -3,18 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="System Architecture - ESE516 CyberRod IoT Project">
+  <meta name="description" content="System Architecture - CyberRod IoT Smart Fishing Rod Monitor">
   <meta name="theme-color" content="#011F5B">
   <title>Architecture | CyberRod - ESE516</title>
-  <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+  <link rel="icon" type="image/svg+xml" href="assets/images/icons/logo.svg">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="loader">
+    <div class="loader__glow"></div>
+    <div class="loader__logo">
+      <img src="assets/images/icons/logo.svg" alt="CyberRod" width="64" height="64">
+      <span class="loader__logo-text">CyberRod</span>
+    </div>
+  </div>
+
   <header class="site-header">
     <nav class="nav" aria-label="Main navigation">
-      <a href="index.html" class="nav__logo">CyberRod</a>
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-icon"><img src="assets/images/icons/logo.svg" alt="" width="24" height="24"></span>
+        <span class="nav__logo-text">CyberRod</span>
+      </a>
       <button class="nav__toggle" aria-label="Toggle menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
@@ -22,7 +33,7 @@
       </button>
       <ul class="nav__links">
         <li><a href="index.html" class="nav__link">Home</a></li>
-        <li><a href="architecture.html" class="nav__link">Architecture</a></li>
+        <li><a href="architecture.html" class="nav__link nav__link--active">Architecture</a></li>
         <li><a href="hardware.html" class="nav__link">Hardware</a></li>
         <li><a href="software.html" class="nav__link">Software</a></li>
         <li><a href="demo.html" class="nav__link">Demo</a></li>
@@ -32,49 +43,293 @@
   </header>
 
   <main id="main-content" style="padding-top:80px;">
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-hero__title">System Architecture</h1>
+        <p class="page-hero__subtitle">High-level design of the CyberRod IoT pipeline — from ultrasonic sensing to cloud dashboard.</p>
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a> <span>/</span> <span>Architecture</span>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Architecture Diagram -->
     <section class="section">
       <div class="container">
-        <h1 class="section-title" data-aos="fade-up">System Architecture</h1>
-        <p class="section__subtitle" data-aos="fade-up" data-aos-delay="100">High-level overview of the system design and data flow.</p>
+        <h2 class="section-title">System Block Diagram</h2>
+        <p class="section__subtitle">End-to-end data flow from sensors to cloud dashboard.</p>
 
-        <div class="architecture-diagram" data-aos="fade-up">
-          <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-            <rect x="20" y="100" width="160" height="100" rx="8" fill="#011F5B" stroke="#6DAE45" stroke-width="2"/>
-            <text x="100" y="140" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">Sensors</text>
-            <text x="100" y="165" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Temperature, Humidity</text>
-            <line x1="180" y1="150" x2="240" y2="150" stroke="#6DAE45" stroke-width="2" marker-end="url(#arrow)"/>
-            <rect x="240" y="100" width="160" height="100" rx="8" fill="#011F5B" stroke="#6DAE45" stroke-width="2"/>
-            <text x="320" y="140" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">SAM D21 MCU</text>
-            <text x="320" y="165" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Firmware Processing</text>
-            <line x1="400" y1="150" x2="460" y2="150" stroke="#6DAE45" stroke-width="2" marker-end="url(#arrow)"/>
-            <rect x="460" y="100" width="140" height="100" rx="8" fill="#011F5B" stroke="#990000" stroke-width="2"/>
-            <text x="530" y="140" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">Wi-Fi Module</text>
-            <text x="530" y="165" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">MQTT Protocol</text>
-            <line x1="600" y1="150" x2="660" y2="150" stroke="#990000" stroke-width="2" marker-end="url(#arrow)"/>
-            <rect x="660" y="80" width="120" height="140" rx="8" fill="#011F5B" stroke="#6DAE45" stroke-width="2"/>
-            <text x="720" y="130" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">Cloud</text>
-            <text x="720" y="155" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">AWS IoT Core</text>
-            <text x="720" y="180" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Node-RED</text>
-            <defs><marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#6DAE45"/></marker></defs>
+        <div class="architecture-diagram">
+          <svg viewBox="0 0 960 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CyberRod System Architecture Diagram" style="width:100%;max-width:960px;margin:0 auto;display:block;">
+            <defs>
+              <linearGradient id="grad-sensor" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0a3a2a"/><stop offset="100%" stop-color="#011F5B"/>
+              </linearGradient>
+              <linearGradient id="grad-mcu" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0a2e5e"/><stop offset="100%" stop-color="#011F5B"/>
+              </linearGradient>
+              <linearGradient id="grad-cloud" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#2a0a0a"/><stop offset="100%" stop-color="#011F5B"/>
+              </linearGradient>
+              <linearGradient id="grad-arrow" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#6DAE45"/><stop offset="100%" stop-color="#38bdf8"/>
+              </linearGradient>
+              <linearGradient id="grad-arrow-red" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#990000"/><stop offset="100%" stop-color="#f87171"/>
+              </linearGradient>
+              <filter id="glow-green"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <filter id="shadow-box"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.3"/></filter>
+              <marker id="arr-g" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#6DAE45"/></marker>
+              <marker id="arr-r" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#990000"/></marker>
+            </defs>
+
+            <!-- Section Labels -->
+            <text x="105" y="30" text-anchor="middle" fill="rgba(109,174,69,0.6)" font-size="10" font-weight="600" letter-spacing="2">SENSING</text>
+            <text x="380" y="30" text-anchor="middle" fill="rgba(56,189,248,0.6)" font-size="10" font-weight="600" letter-spacing="2">PROCESSING</text>
+            <text x="680" y="30" text-anchor="middle" fill="rgba(153,0,0,0.6)" font-size="10" font-weight="600" letter-spacing="2">CLOUD</text>
+
+            <!-- Ultrasonic Sensor Card -->
+            <g filter="url(#shadow-box)">
+              <rect x="20" y="55" width="170" height="95" rx="12" fill="url(#grad-sensor)" stroke="#6DAE45" stroke-width="1.5"/>
+              <!-- Sonar icon -->
+              <circle cx="52" cy="85" r="12" fill="none" stroke="#6DAE45" stroke-width="1" opacity="0.4"/>
+              <circle cx="52" cy="85" r="7" fill="none" stroke="#6DAE45" stroke-width="1" opacity="0.6"/>
+              <circle cx="52" cy="85" r="2.5" fill="#6DAE45"/>
+              <path d="M62 80c4 2 4 8 0 10" fill="none" stroke="#6DAE45" stroke-width="1" opacity="0.5"/>
+              <path d="M65 77c6 3 6 13 0 16" fill="none" stroke="#6DAE45" stroke-width="1" opacity="0.3"/>
+              <text x="130" y="82" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Ultrasonic</text>
+              <text x="130" y="98" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">UART1 | 9600 baud</text>
+              <text x="105" y="138" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">Fish Detection · 4-byte frames</text>
+            </g>
+
+            <!-- SHT4x Sensor Card -->
+            <g filter="url(#shadow-box)">
+              <rect x="20" y="175" width="170" height="95" rx="12" fill="url(#grad-sensor)" stroke="#6DAE45" stroke-width="1.5"/>
+              <!-- Thermometer icon -->
+              <rect x="47" y="192" width="6" height="22" rx="3" fill="none" stroke="#6DAE45" stroke-width="1.2"/>
+              <circle cx="50" cy="220" r="5" fill="none" stroke="#6DAE45" stroke-width="1.2"/>
+              <circle cx="50" cy="220" r="2.5" fill="#6DAE45"/>
+              <line x1="50" y1="200" x2="50" y2="212" stroke="#6DAE45" stroke-width="2" stroke-linecap="round"/>
+              <!-- Humidity drops -->
+              <path d="M63 200c0-3 3.5-7 3.5-7s3.5 4 3.5 7a3.5 3.5 0 01-7 0z" fill="none" stroke="#38bdf8" stroke-width="0.8" opacity="0.6"/>
+              <path d="M63 215c0-2 2.5-5 2.5-5s2.5 3 2.5 5a2.5 2.5 0 01-5 0z" fill="#38bdf8" opacity="0.3"/>
+              <text x="130" y="202" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">SHT4x</text>
+              <text x="130" y="218" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">I2C0 | Addr 0x70</text>
+              <text x="105" y="258" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">Temp &amp; Humidity · CRC-8</text>
+            </g>
+
+            <!-- MCU Card -->
+            <g filter="url(#shadow-box)">
+              <rect x="270" y="70" width="220" height="185" rx="14" fill="url(#grad-mcu)" stroke="#38bdf8" stroke-width="2"/>
+              <!-- Chip icon -->
+              <rect x="298" y="95" width="28" height="28" rx="4" fill="none" stroke="#38bdf8" stroke-width="1.5"/>
+              <line x1="305" y1="91" x2="305" y2="95" stroke="#38bdf8" stroke-width="1.2"/>
+              <line x1="313" y1="91" x2="313" y2="95" stroke="#38bdf8" stroke-width="1.2"/>
+              <line x1="321" y1="91" x2="321" y2="95" stroke="#38bdf8" stroke-width="1.2"/>
+              <line x1="305" y1="123" x2="305" y2="127" stroke="#38bdf8" stroke-width="1.2"/>
+              <line x1="313" y1="123" x2="313" y2="127" stroke="#38bdf8" stroke-width="1.2"/>
+              <line x1="321" y1="123" x2="321" y2="127" stroke="#38bdf8" stroke-width="1.2"/>
+              <line x1="294" y1="103" x2="298" y2="103" stroke="#38bdf8" stroke-width="1.2"/>
+              <line x1="294" y1="112" x2="298" y2="112" stroke="#38bdf8" stroke-width="1.2"/>
+              <line x1="326" y1="103" x2="330" y2="103" stroke="#38bdf8" stroke-width="1.2"/>
+              <line x1="326" y1="112" x2="330" y2="112" stroke="#38bdf8" stroke-width="1.2"/>
+              <!-- Wi-Fi waves -->
+              <path d="M335 106c3-4 9-4 12 0" fill="none" stroke="#6DAE45" stroke-width="1" opacity="0.5"/>
+              <path d="M338 109c1.5-2 4.5-2 6 0" fill="none" stroke="#6DAE45" stroke-width="1" opacity="0.7"/>
+              <circle cx="341" cy="112" r="1" fill="#6DAE45" opacity="0.9"/>
+              <text x="395" y="104" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">Si917 MCU</text>
+              <text x="395" y="120" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">ARM Cortex-M4F @ 80 MHz</text>
+              <text x="395" y="133" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9">BRD2708A Dev Board</text>
+              <line x1="285" y1="145" x2="475" y2="145" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+              <text x="380" y="165" text-anchor="middle" fill="#6DAE45" font-size="12" font-weight="600">FreeRTOS</text>
+              <text x="380" y="182" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9">5 Tasks · Watchdog · heap_4</text>
+              <!-- Task badges -->
+              <rect x="288" y="195" width="58" height="16" rx="4" fill="rgba(109,174,69,0.15)" stroke="rgba(109,174,69,0.3)" stroke-width="0.5"/>
+              <text x="317" y="206" text-anchor="middle" fill="#6DAE45" font-size="7" font-weight="500">Fish</text>
+              <rect x="352" y="195" width="58" height="16" rx="4" fill="rgba(109,174,69,0.15)" stroke="rgba(109,174,69,0.3)" stroke-width="0.5"/>
+              <text x="381" y="206" text-anchor="middle" fill="#6DAE45" font-size="7" font-weight="500">Temp</text>
+              <rect x="416" y="195" width="58" height="16" rx="4" fill="rgba(56,189,248,0.15)" stroke="rgba(56,189,248,0.3)" stroke-width="0.5"/>
+              <text x="445" y="206" text-anchor="middle" fill="#38bdf8" font-size="7" font-weight="500">MQTT</text>
+              <rect x="288" y="218" width="58" height="16" rx="4" fill="rgba(153,0,0,0.15)" stroke="rgba(153,0,0,0.3)" stroke-width="0.5"/>
+              <text x="317" y="229" text-anchor="middle" fill="#f87171" font-size="7" font-weight="500">OTA</text>
+              <rect x="352" y="218" width="58" height="16" rx="4" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+              <text x="381" y="229" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7" font-weight="500">WDT</text>
+              <rect x="416" y="218" width="58" height="16" rx="4" fill="rgba(109,174,69,0.15)" stroke="rgba(109,174,69,0.3)" stroke-width="0.5"/>
+              <text x="445" y="229" text-anchor="middle" fill="#6DAE45" font-size="7" font-weight="500">Wi-Fi</text>
+            </g>
+
+            <!-- Azure VM Card -->
+            <g filter="url(#shadow-box)">
+              <rect x="575" y="50" width="210" height="145" rx="14" fill="url(#grad-cloud)" stroke="#990000" stroke-width="1.5"/>
+              <!-- Cloud icon -->
+              <path d="M602 90c0-8 6.5-14 14-14 5.5 0 10.2 3.2 12.5 7.8 1.2-.5 2.5-.8 3.8-.8 5.2 0 9.5 4 9.7 9 3 1.5 5 4.5 5 8 0 5-4 9-9 9h-24c-6.5 0-12-5-12-11 0-3.5 1.5-6.5 4-8.5" fill="none" stroke="#f87171" stroke-width="1.3" opacity="0.6"/>
+              <text x="710" y="80" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">Azure VM</text>
+              <text x="710" y="96" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9">20.230.132.231</text>
+              <line x1="590" y1="106" x2="770" y2="106" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+              <text x="680" y="124" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="10">Mosquitto MQTT Broker</text>
+              <text x="680" y="140" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9">:1883 · Keepalive 60s</text>
+              <text x="680" y="158" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="10">HTTP OTAF Server :80</text>
+              <text x="680" y="174" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="10">Node-RED v4.1.8</text>
+            </g>
+
+            <!-- MQTT Topics Box -->
+            <g>
+              <rect x="575" y="215" width="210" height="105" rx="10" fill="rgba(109,174,69,0.05)" stroke="rgba(109,174,69,0.3)" stroke-width="1" stroke-dasharray="5,3"/>
+              <text x="680" y="236" text-anchor="middle" fill="#6DAE45" font-size="10" font-weight="600" letter-spacing="1">MQTT TOPICS</text>
+              <text x="595" y="255" fill="rgba(255,255,255,0.45)" font-size="9"><tspan fill="#6DAE45" font-size="8">▸</tspan> CyberRod/Fish_detection</text>
+              <text x="595" y="270" fill="rgba(255,255,255,0.45)" font-size="9"><tspan fill="#6DAE45" font-size="8">▸</tspan> CyberRod/Distance</text>
+              <text x="595" y="285" fill="rgba(255,255,255,0.45)" font-size="9"><tspan fill="#38bdf8" font-size="8">▸</tspan> CyberRod/Temperature</text>
+              <text x="595" y="300" fill="rgba(255,255,255,0.45)" font-size="9"><tspan fill="#38bdf8" font-size="8">▸</tspan> CyberRod/Humidity</text>
+              <text x="595" y="315" fill="rgba(255,255,255,0.3)" font-size="9"><tspan fill="#f87171" font-size="8">▸</tspan> CyberRod/Update</text>
+            </g>
+
+            <!-- Connection Arrows -->
+            <!-- Sensor → MCU -->
+            <path d="M190 100 C230 100 240 140 270 140" fill="none" stroke="url(#grad-arrow)" stroke-width="1.8" marker-end="url(#arr-g)"/>
+            <path d="M190 220 C230 220 240 180 270 180" fill="none" stroke="url(#grad-arrow)" stroke-width="1.8" marker-end="url(#arr-g)"/>
+            <!-- Arrow labels -->
+            <rect x="208" y="96" width="36" height="14" rx="3" fill="rgba(109,174,69,0.15)"/>
+            <text x="226" y="106" text-anchor="middle" fill="#6DAE45" font-size="8" font-weight="500">UART</text>
+            <rect x="208" y="212" width="28" height="14" rx="3" fill="rgba(109,174,69,0.15)"/>
+            <text x="222" y="222" text-anchor="middle" fill="#6DAE45" font-size="8" font-weight="500">I²C</text>
+
+            <!-- MCU → Cloud -->
+            <path d="M490 130 C530 130 540 100 575 100" fill="none" stroke="url(#grad-arrow-red)" stroke-width="2" marker-end="url(#arr-r)"/>
+            <rect x="510" y="88" width="36" height="14" rx="3" fill="rgba(153,0,0,0.15)"/>
+            <text x="528" y="98" text-anchor="middle" fill="#f87171" font-size="8" font-weight="500">Wi-Fi</text>
+
+            <!-- MCU → MQTT Topics -->
+            <path d="M490 180 C530 180 540 240 575 250" fill="none" stroke="#6DAE45" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arr-g)" opacity="0.6"/>
+            <text x="530" y="222" fill="rgba(109,174,69,0.5)" font-size="8">MQTT</text>
+
+            <!-- OTA reverse arrow -->
+            <path d="M575 140 C545 145 515 155 490 165" fill="none" stroke="#990000" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arr-r)" opacity="0.4"/>
+            <text x="538" y="154" fill="rgba(153,0,0,0.45)" font-size="7" font-weight="500">OTA</text>
+
+            <!-- Animated data flow dots -->
+            <circle r="2.5" fill="#6DAE45" filter="url(#glow-green)">
+              <animateMotion dur="2s" repeatCount="indefinite" path="M190 100 C230 100 240 140 270 140"/>
+            </circle>
+            <circle r="2.5" fill="#6DAE45" filter="url(#glow-green)">
+              <animateMotion dur="2.5s" repeatCount="indefinite" path="M490 130 C530 130 540 100 575 100"/>
+            </circle>
+            <circle r="2" fill="#38bdf8" opacity="0.7">
+              <animateMotion dur="3s" repeatCount="indefinite" path="M190 220 C230 220 240 180 270 180"/>
+            </circle>
+
+            <!-- Dashboard node -->
+            <g filter="url(#shadow-box)">
+              <rect x="820" y="85" width="120" height="70" rx="10" fill="#011F5B" stroke="#38bdf8" stroke-width="1.5"/>
+              <!-- Chart icon -->
+              <line x1="843" y1="130" x2="843" y2="105" stroke="#38bdf8" stroke-width="1.5" opacity="0.6"/>
+              <line x1="853" y1="130" x2="853" y2="112" stroke="#6DAE45" stroke-width="1.5" opacity="0.6"/>
+              <line x1="863" y1="130" x2="863" y2="100" stroke="#38bdf8" stroke-width="1.5" opacity="0.6"/>
+              <text x="900" y="112" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Dashboard</text>
+              <text x="880" y="146" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">FlowFuse 2.0</text>
+            </g>
+            <!-- Cloud → Dashboard -->
+            <path d="M785 120 L820 120" fill="none" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arr-g)" opacity="0.7"/>
+            <text x="802" y="114" text-anchor="middle" fill="rgba(56,189,248,0.5)" font-size="7">WS</text>
           </svg>
         </div>
+      </div>
+    </section>
 
-        <div class="architecture-flow" data-aos="fade-up">
+    <!-- Architecture Layers -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section-title">Architecture Layers</h2>
+        <p class="section__subtitle">Four-layer architecture from physical sensing to cloud application.</p>
+
+        <div class="architecture-flow">
           <div class="flow-card">
+            <div class="flow-card__number">01</div>
             <h3 class="flow-card__title">Sensing Layer</h3>
-            <p class="flow-card__text">Environmental sensors collect real-time data for processing by the microcontroller.</p>
+            <p class="flow-card__text">Ultrasonic distance sensor (UART, 9600 baud) detects fish proximity with 4-byte frame protocol. SHT4x temperature/humidity sensor (I2C, addr 0x70) provides environmental data with CRC-8 validation.</p>
+            <div class="flow-card__tags">
+              <span class="badge badge--primary">UART1</span>
+              <span class="badge badge--primary">I2C0</span>
+              <span class="badge">GPIO_29/30</span>
+              <span class="badge">GPIO_6/7</span>
+            </div>
           </div>
           <div class="flow-card">
+            <div class="flow-card__number">02</div>
             <h3 class="flow-card__title">Processing Layer</h3>
-            <p class="flow-card__text">SAM D21 MCU runs custom firmware to process, filter, and package sensor readings.</p>
+            <p class="flow-card__text">Si917 ARM Cortex-M4F runs FreeRTOS with 5 concurrent tasks: fish detection (20ms), temperature upload (3s), MQTT connection (100ms), OTA updates (200ms), and watchdog (1s). Hardware watchdog ensures system reliability.</p>
+            <div class="flow-card__tags">
+              <span class="badge badge--primary">FreeRTOS</span>
+              <span class="badge badge--primary">Si917</span>
+              <span class="badge">heap_4</span>
+              <span class="badge">WDT</span>
+            </div>
           </div>
           <div class="flow-card">
+            <div class="flow-card__number">03</div>
             <h3 class="flow-card__title">Communication Layer</h3>
-            <p class="flow-card__text">Wi-Fi module transmits data via MQTT to the cloud for storage and analysis.</p>
+            <p class="flow-card__text">Si917 integrated Wi-Fi (802.11 b/g/n, WPA2) connects to local network. Custom MQTT 3.1.1 client over BSD sockets publishes to 4 topics with 16-deep queue and auto-reconnect. HTTP OTAF v2 for firmware updates.</p>
+            <div class="flow-card__tags">
+              <span class="badge badge--secondary">Wi-Fi</span>
+              <span class="badge badge--secondary">MQTT</span>
+              <span class="badge badge--secondary">HTTP OTAF</span>
+            </div>
           </div>
           <div class="flow-card">
+            <div class="flow-card__number">04</div>
             <h3 class="flow-card__title">Application Layer</h3>
-            <p class="flow-card__text">Node-RED dashboard provides real-time visualization and device management.</p>
+            <p class="flow-card__text">Azure VM hosts MQTT broker (port 1883) and HTTP server (port 80). Node-RED v4.1.8 with FlowFuse Dashboard 2.0 provides real-time sensor visualization with custom nautical-themed CSS. OTA triggered by MQTT message.</p>
+            <div class="flow-card__tags">
+              <span class="badge badge--secondary">Azure</span>
+              <span class="badge badge--secondary">Node-RED</span>
+              <span class="badge badge--secondary">FlowFuse 2.0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Flow Timeline -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Data Flow</h2>
+        <p class="section__subtitle">How sensor data travels from the fishing rod to the cloud dashboard.</p>
+
+        <div class="timeline">
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <h4>1. Sensor Sampling</h4>
+              <p>Ultrasonic sensor sends 4-byte distance frames (header 0xFF + 2-byte distance + checksum) via UART at 9600 baud. SHT4x sensor reads temperature and humidity via I2C with high repeatability command (0x7866).</p>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <h4>2. Data Processing</h4>
+              <p>Fish detection task classifies distance into states (0=none, 1=near &lt;300mm, 2=very near &lt;100mm). Temperature task converts raw readings: T = -45 + 175*(raw/65536), H = 100*(raw/65536).</p>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <h4>3. MQTT Publishing</h4>
+              <p>Processed data queued in 16-deep MQTT publish queue. MQTT task drains one message per loop (100ms period) to Azure VM broker at 20.230.132.231:1883. Client ID: si917-devboard-cyberrod, Keepalive: 60s.</p>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <h4>4. Dashboard Visualization</h4>
+              <p>Node-RED subscribes to all CyberRod/* topics. FlowFuse Dashboard 2.0 renders real-time gauges, charts, and status indicators with custom nautical-themed CSS design.</p>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <h4>5. Remote Updates</h4>
+              <p>Send "1" to CyberRod/Update MQTT topic to trigger OTA. Firmware downloaded via HTTP from Azure VM (wifi_http_otaf_soc.rps) using Si917's built-in OTAF v2 API.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -83,12 +338,19 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>ESE516 - Internet of Things for Embedded Systems | University of Pennsylvania | Team CyberRod</p>
+      <div class="footer__content">
+        <p class="footer__brand">CyberRod</p>
+        <p>ESE516 - Internet of Things for Embedded Systems | University of Pennsylvania</p>
+        <p class="footer__team">Team s26-s26-t17-cyberrod | Spring 2026</p>
+      </div>
     </div>
   </footer>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>AOS.init({ offset: 200, duration: 600, once: true });</script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
   <script type="module" src="js/main.js"></script>
 </body>
 </html>

@@ -35,3 +35,15 @@ secret.h
 # Claude Code - local only, never push
 CLAUDE.md
 .claude/
+.agents/
+skills-lock.json
+
+# Wrangler CLI cache
+.wrangler/
+
+# Screenshots & temp files
+screenshots/
+scripts/
+temp_screenshot.txt
+*.png
+!docs/assets/**/*.png

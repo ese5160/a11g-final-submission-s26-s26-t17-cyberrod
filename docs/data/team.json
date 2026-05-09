@@ -1,20 +1,20 @@
 [
   {
-    "name": "Team Member 1",
+    "name": "Zhenyao Liu",
     "role": "Firmware & Hardware Lead",
     "photo": "assets/images/team/member-1.webp",
-    "bio": "Brief bio placeholder.",
-    "github": "https://github.com/username",
-    "email": "mailto:student@upenn.edu",
-    "contributions": ["PCB design", "SAM D21 firmware", "Sensor integration"]
+    "bio": "Electrical and systems engineering student at UPenn specializing in embedded firmware development and hardware design for IoT systems.",
+    "github": "https://github.com/Shirolzy",
+    "email": "mailto:zhenyao@seas.upenn.edu",
+    "contributions": ["Si917 firmware architecture", "FreeRTOS task design", "Ultrasonic sensor driver (UART)", "SHT4x I2C sensor driver", "Fish detection algorithm", "OTA firmware update implementation", "Watchdog & safety systems"]
   },
   {
-    "name": "Team Member 2",
+    "name": "Jeffrey Li",
     "role": "Cloud & Dashboard Lead",
     "photo": "assets/images/team/member-2.webp",
-    "bio": "Brief bio placeholder.",
-    "github": "https://github.com/username",
-    "email": "mailto:student@upenn.edu",
-    "contributions": ["AWS IoT setup", "Node-RED dashboard", "MQTT broker"]
+    "bio": "Systems engineering student at UPenn focused on cloud infrastructure, IoT dashboards, and full-stack web development for connected devices.",
+    "github": "https://github.com/jojojjjjj",
+    "email": "mailto:jeffli88@seas.upenn.edu",
+    "contributions": ["Azure VM cloud infrastructure", "MQTT broker setup & configuration", "Node-RED dashboard (v5-v6 iterations)", "Custom dashboard CSS with nautical theme", "Project documentation & showcase website", "Cloud deployment & networking"]
   }
 ]

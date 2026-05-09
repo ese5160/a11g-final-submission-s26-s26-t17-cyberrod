@@ -48,6 +48,21 @@ ol {
   list-style: none;
 }
 
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  padding: 1rem;
+  background: var(--color-primary);
+  color: #fff;
+  z-index: 9999;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
