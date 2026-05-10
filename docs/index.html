@@ -13,6 +13,9 @@
   <link rel="apple-touch-icon" href="assets/images/icons/apple-touch.png">
   <link rel="manifest" href="manifests/site.webmanifest">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -28,7 +31,7 @@
 
   <header class="site-header">
     <nav class="nav" aria-label="Main navigation">
-      <a href="index.html" class="nav__logo">
+      <a href="index.html" class="nav__logo" aria-label="CyberRod Home">
         <span class="nav__logo-icon"><img src="assets/images/icons/logo.svg" alt="" width="24" height="24"></span>
         <span class="nav__logo-text">CyberRod</span>
       </a>
@@ -53,6 +56,16 @@
     <section class="hero">
       <div class="hero__particles"></div>
       <div class="hero__grid-overlay"></div>
+      <div class="hero__grid-overlay hero__grid-overlay--secondary"></div>
+      <div class="hero__glows" aria-hidden="true">
+        <div class="hero__glow hero__glow--green"></div>
+        <div class="hero__glow hero__glow--blue"></div>
+        <div class="hero__glow hero__glow--purple"></div>
+        <div class="hero__glow hero__glow--cyan"></div>
+      </div>
+      <div class="hero__data-stream" aria-hidden="true">
+        <span>01001101 10110010 00110101 11100110 01010011 10101100 01110010 11010101 00101110 01100101 10011010 00101101 11100011 01001110 10110100 00110111 01011001 10100110 01110100 11010010</span>
+      </div>
       <div class="hero__content">
         <span class="hero__badge">ESE516 - IoT for Embedded Systems | Spring 2026</span>
         <h1 class="hero__title" data-typewriter>CyberRod</h1>
@@ -66,7 +79,7 @@
         </div>
         <div class="hero__actions">
           <a href="demo.html" class="btn btn--secondary">View Demo</a>
-          <a href="architecture.html" class="btn btn--outline" style="border-color:#fff;color:#fff;">Explore System</a>
+          <a href="architecture.html" class="btn btn--outline">Explore System</a>
         </div>
       </div>
       <div class="hero__scroll-indicator">
@@ -171,7 +184,7 @@
         <p class="cta__text">Discover how our team designed and built a complete IoT embedded system — from Si917 firmware to Azure cloud dashboard.</p>
         <div style="display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;">
           <a href="architecture.html" class="btn btn--secondary">System Architecture</a>
-          <a href="demo.html" class="btn btn--outline" style="border-color:#fff;color:#fff;">Watch Demo</a>
+          <a href="demo.html" class="btn btn--outline">Watch Demo</a>
         </div>
       </div>
     </section>
