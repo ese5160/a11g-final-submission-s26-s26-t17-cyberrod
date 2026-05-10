@@ -1,28 +1,57 @@
 /* Architecture Page Styles */
 
-/* Override inline padding-top on main */
-main[style*="padding-top"] {
-  padding-top: 0 !important;
-}
-
 .page-hero {
-  padding: 8rem var(--space-lg) var(--space-xl);
+  padding: var(--space-3xl) var(--space-lg) var(--space-xl);
   background: var(--gradient-dark);
-  color: #fff;
+  color: var(--color-white);
   max-width: var(--max-width);
   margin-inline: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 20% 60%, rgba(var(--color-accent-rgb), 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 80% 30%, rgba(var(--color-sky-rgb), 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.page-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(var(--color-sky-rgb), 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--color-sky-rgb), 0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0,0,0,0.5) 5%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0,0,0,0.5) 5%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Particle canvas container for sub-pages */
+.page-hero__particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .page-hero__title {
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 900;
-  color: #fff;
+  color: var(--color-white);
   margin-bottom: var(--space-sm);
   letter-spacing: var(--tracking-tight);
 }
 
 .page-hero__subtitle {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(var(--color-white-rgb), 0.5);
   max-width: 600px;
   font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
@@ -31,7 +60,7 @@ main[style*="padding-top"] {
 .breadcrumb {
   margin-top: var(--space-md);
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(var(--color-white-rgb), 0.35);
   display: flex;
   gap: 0.5rem;
   align-items: center;
@@ -42,7 +71,7 @@ main[style*="padding-top"] {
 }
 
 .breadcrumb span {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(var(--color-white-rgb), 0.3);
 }
 
 .architecture-diagram {
@@ -83,11 +112,13 @@ main[style*="padding-top"] {
   padding: var(--space-lg);
   background: var(--color-surface);
   border-radius: var(--border-radius-lg);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border-light);
   box-shadow: var(--shadow-xs);
   transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .flow-card::before {
@@ -113,7 +144,7 @@ main[style*="padding-top"] {
 }
 
 .flow-card__number {
-  font-size: 2.5rem;
+  font-size: var(--text-4xl);
   font-weight: 900;
   color: rgba(var(--color-primary-rgb), 0.06);
   line-height: var(--leading-tight);
@@ -132,11 +163,80 @@ main[style*="padding-top"] {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   line-height: var(--leading-relaxed);
+  flex: 1;
 }
 
 .flow-card__tags {
   display: flex;
-  gap: 0.35rem;
+  gap: var(--space-xs);
   flex-wrap: wrap;
   margin-top: var(--space-md);
+}
+
+/* Page-hero entrance animation */
+.page-hero .breadcrumb,
+.page-hero .page-hero__title,
+.page-hero .page-hero__subtitle {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: pageHeroReveal 0.8s var(--ease-out-expo) forwards;
+}
+
+.page-hero .breadcrumb { animation-delay: 0.3s; }
+.page-hero .page-hero__title { animation-delay: 0.5s; }
+.page-hero .page-hero__subtitle { animation-delay: 0.7s; }
+
+@keyframes pageHeroReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Breadcrumb hover enhancement */
+.breadcrumb a {
+  transition: color var(--transition-fast);
+  position: relative;
+}
+
+.breadcrumb a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width var(--transition-fast);
+}
+
+.breadcrumb a:hover::after {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-hero {
+    padding: var(--space-2xl) var(--space-md) var(--space-lg);
+  }
+  .page-hero__title {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+  }
+}
+
+/* ── Architecture page: engineering paper blue-gray grid ── */
+body[data-page="architecture"] {
+  background: #F4F6F9;
+}
+body[data-page="architecture"] .page-hero {
+  background: linear-gradient(165deg, #0a1a3f 0%, #1a2a4f 40%, #0f1d3a 100%);
+}
+body[data-page="architecture"] .page-hero::after {
+  background-image:
+    linear-gradient(#E8EDF2 1px, transparent 1px),
+    linear-gradient(90deg, #E8EDF2 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.35;
+  mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, rgba(0,0,0,0.6) 5%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, rgba(0,0,0,0.6) 5%, transparent 75%);
 }

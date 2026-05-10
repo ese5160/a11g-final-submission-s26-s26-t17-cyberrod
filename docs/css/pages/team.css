@@ -3,6 +3,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-xl);
   margin-top: var(--space-xl);
+  align-items: stretch;
 }
 
 .team-card {
@@ -11,10 +12,15 @@
   border-radius: var(--border-radius-lg);
   padding: var(--space-xl);
   box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--color-border);
   transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 0;
+  height: 100%;
 }
 
 .team-card::before {
@@ -51,9 +57,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: var(--text-3xl);
   font-weight: 800;
-  color: #fff;
+  color: var(--color-white);
   letter-spacing: var(--tracking-wide);
 }
 
@@ -95,10 +101,12 @@
 
 .team-card__contributions {
   display: flex;
-  gap: 0.35rem;
+  gap: var(--space-xs);
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: var(--space-lg);
+  flex: 1;
+  align-content: flex-start;
 }
 
 .team-card__links {
@@ -110,14 +118,14 @@
 .team-card__link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: var(--space-xs);
   color: var(--color-text-muted);
   font-size: var(--text-sm);
   font-weight: 500;
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius-full);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-border);
   transition: color var(--transition-base), border-color var(--transition-base), background var(--transition-base);
 }
 
@@ -125,6 +133,40 @@
   color: var(--color-primary);
   border-color: var(--color-primary);
   background: rgba(var(--color-primary-rgb), 0.04);
+}
+
+.team-card__email {
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  width: 100%;
+  max-width: 280px;
+  justify-content: center;
+}
+
+.team-card__email-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.01em;
+}
+
+.team-card__copy-icon {
+  opacity: 0.4;
+  flex-shrink: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.team-card__email:hover .team-card__copy-icon {
+  opacity: 0.8;
+}
+
+.team-card__email--copied {
+  color: var(--color-accent) !important;
+  border-color: var(--color-accent) !important;
+  background: rgba(var(--color-accent-rgb), 0.06) !important;
+}
+
+.team-card__email--copied .team-card__copy-icon {
+  opacity: 1;
+  color: var(--color-accent);
 }
 
 /* Contribution Split */
@@ -139,7 +181,7 @@
   padding: var(--space-xl);
   background: var(--color-surface);
   border-radius: var(--border-radius-lg);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--color-border);
   box-shadow: var(--shadow-xs);
 }
 
@@ -148,7 +190,7 @@
   font-weight: 700;
   margin-bottom: var(--space-lg);
   padding-bottom: var(--space-md);
-  border-bottom: 2px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 2px solid var(--color-border-strong);
   color: var(--color-text);
   letter-spacing: var(--tracking-normal);
 }
@@ -163,7 +205,7 @@
 
 .contribution-card__list li {
   position: relative;
-  padding-left: 1.5rem;
+  padding-left: var(--space-md);
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   line-height: var(--leading-normal);
@@ -192,7 +234,7 @@
   padding: var(--space-lg);
   background: var(--color-surface);
   border-radius: var(--border-radius);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--color-border);
   box-shadow: var(--shadow-xs);
 }
 
@@ -201,7 +243,7 @@
   text-transform: uppercase;
   letter-spacing: var(--tracking-ultra);
   color: var(--color-text-muted);
-  margin-bottom: 0.35rem;
+  margin-bottom: var(--space-xs);
   font-weight: 500;
 }
 
@@ -219,4 +261,15 @@
 
 @media (max-width: 480px) {
   .info-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Team page: brand navy, clean gradient ── */
+body[data-page="team"] {
+  background: linear-gradient(180deg, #F7F7FA 0%, #EEF0F5 100%);
+}
+body[data-page="team"] .page-hero {
+  background: linear-gradient(160deg, #011F5B 0%, #0a2a5f 50%, #001238 100%);
+}
+body[data-page="team"] .page-hero::after {
+  opacity: 0.15;
 }

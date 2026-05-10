@@ -7,6 +7,9 @@
   <meta name="theme-color" content="#011F5B">
   <title>Architecture | CyberRod - ESE516</title>
   <link rel="icon" type="image/svg+xml" href="assets/images/icons/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -22,7 +25,7 @@
 
   <header class="site-header">
     <nav class="nav" aria-label="Main navigation">
-      <a href="index.html" class="nav__logo">
+      <a href="index.html" class="nav__logo" aria-label="CyberRod Home">
         <span class="nav__logo-icon"><img src="assets/images/icons/logo.svg" alt="" width="24" height="24"></span>
         <span class="nav__logo-text">CyberRod</span>
       </a>
@@ -42,13 +45,14 @@
     </nav>
   </header>
 
-  <main id="main-content" style="padding-top:80px;">
+  <main id="main-content">
     <!-- Page Hero -->
     <section class="page-hero">
+      <div class="page-hero__particles"></div>
       <div class="container">
         <h1 class="page-hero__title">System Architecture</h1>
         <p class="page-hero__subtitle">High-level design of the CyberRod IoT pipeline — from ultrasonic sensing to cloud dashboard.</p>
-        <nav class="breadcrumb">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a> <span>/</span> <span>Architecture</span>
         </nav>
       </div>

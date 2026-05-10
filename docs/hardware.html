@@ -8,6 +8,9 @@
   <title>Hardware | CyberRod - ESE516</title>
   <link rel="icon" type="image/svg+xml" href="assets/images/icons/logo.svg">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -23,7 +26,7 @@
 
   <header class="site-header">
     <nav class="nav" aria-label="Main navigation">
-      <a href="index.html" class="nav__logo">
+      <a href="index.html" class="nav__logo" aria-label="CyberRod Home">
         <span class="nav__logo-icon"><img src="assets/images/icons/logo.svg" alt="" width="24" height="24"></span>
         <span class="nav__logo-text">CyberRod</span>
       </a>
@@ -35,7 +38,7 @@
       <ul class="nav__links">
         <li><a href="index.html" class="nav__link">Home</a></li>
         <li><a href="architecture.html" class="nav__link">Architecture</a></li>
-        <li><a href="hardware.html" class="nav__link">Hardware</a></li>
+        <li><a href="hardware.html" class="nav__link nav__link--active">Hardware</a></li>
         <li><a href="software.html" class="nav__link">Software</a></li>
         <li><a href="demo.html" class="nav__link">Demo</a></li>
         <li><a href="team.html" class="nav__link">Team</a></li>
@@ -43,22 +46,16 @@
     </nav>
   </header>
 
-  <main id="main-content" style="padding-top:80px;">
+  <main id="main-content">
 
-    <!-- Page Hero Banner -->
-    <section class="section" style="background:var(--color-primary);padding-block:var(--space-xl);">
-      <div class="container" style="text-align:center;">
-        <nav aria-label="Breadcrumb" style="margin-bottom:var(--space-md);">
-          <ol style="list-style:none;display:flex;gap:var(--space-sm);justify-content:center;font-size:var(--text-sm);">
-            <li><a href="index.html" style="color:rgba(255,255,255,0.6);text-decoration:none;">Home</a></li>
-            <li style="color:rgba(255,255,255,0.4);">/</li>
-            <li style="color:#fff;font-weight:600;">Hardware</li>
-          </ol>
+    <section class="page-hero">
+      <div class="page-hero__particles"></div>
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> <span>/</span> <span>Hardware</span>
         </nav>
-        <h1 class="section-title" style="color:#fff;">Hardware Design</h1>
-        <p style="color:rgba(255,255,255,0.7);font-size:var(--text-lg);max-width:60ch;margin-inline:auto;">
-          Detailed hardware specifications, sensor integration, and pin-level configuration for the CyberRod IoT smart fishing rod monitoring system.
-        </p>
+        <h1 class="page-hero__title">Hardware Design</h1>
+        <p class="page-hero__subtitle">Detailed hardware specifications, sensor integration, and pin-level configuration for the CyberRod IoT smart fishing rod monitoring system.</p>
       </div>
     </section>
 
@@ -70,7 +67,7 @@
           <p class="section__subtitle">The CyberRod system is built around the Silicon Labs Si917 wireless microcontroller with integrated sensors for environmental monitoring and proximity detection.</p>
         </div>
 
-        <div class="grid grid--3" style="margin-bottom:var(--space-xl);">
+        <div class="grid grid--3">
 
           <!-- Si917 MCU Card -->
           <div class="card">
@@ -78,18 +75,18 @@
               <path d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 004.5 7.5v9a2.25 2.25 0 002.25 2.25z"/>
             </svg>
             <h3 class="card__title">Silicon Labs Si917 MCU</h3>
-            <span class="badge badge--primary" style="margin-bottom:var(--space-sm);">SIWG917Y111MGABA</span>
+            <span class="badge badge--primary">SIWG917Y111MGABA</span>
             <p class="card__text">
               ARM Cortex-M4F processor with hardware floating-point unit and built-in Wi-Fi 2.4 GHz 802.11 b/g/n radio.
               Deployed on the BRD2708A development board with full GPIO breakout.
             </p>
-            <ul style="list-style:none;padding:0;margin-top:var(--space-md);font-size:var(--text-sm);color:var(--color-text-muted);line-height:2;">
-              <li><strong style="color:var(--color-text);">Core:</strong> ARM Cortex-M4F @ 80 MHz</li>
-              <li><strong style="color:var(--color-text);">Wireless:</strong> Wi-Fi 2.4 GHz 802.11 b/g/n</li>
-              <li><strong style="color:var(--color-text);">Dev Board:</strong> BRD2708A</li>
-              <li><strong style="color:var(--color-text);">SDK:</strong> Simplicity SDK 2025.6.3</li>
-              <li><strong style="color:var(--color-text);">Wireless SDK:</strong> WiseConnect 3 v3.5.2</li>
-              <li><strong style="color:var(--color-text);">Interfaces:</strong> I2C, UART, SPI, GPIO, ADC</li>
+            <ul class="spec-list">
+              <li><strong>Core:</strong> ARM Cortex-M4F @ 80 MHz</li>
+              <li><strong>Wireless:</strong> Wi-Fi 2.4 GHz 802.11 b/g/n</li>
+              <li><strong>Dev Board:</strong> BRD2708A</li>
+              <li><strong>SDK:</strong> Simplicity SDK 2025.6.3</li>
+              <li><strong>Wireless SDK:</strong> WiseConnect 3 v3.5.2</li>
+              <li><strong>Interfaces:</strong> I2C, UART, SPI, GPIO, ADC</li>
             </ul>
           </div>
 
@@ -102,18 +99,18 @@
               <path d="M18 6c1-2 2-3.5 2-3.5s2 2.5 2 4.5a2 2 0 01-4 0z" opacity="0.5"/>
             </svg>
             <h3 class="card__title">SHT4x Temp &amp; Humidity</h3>
-            <span class="badge" style="margin-bottom:var(--space-sm);">Sensirion SHT40</span>
+            <span class="badge">Sensirion SHT40</span>
             <p class="card__text">
               High-accuracy digital temperature and humidity sensor connected via I2C.
               Operates in high repeatability mode with CRC-8 data integrity validation for reliable environmental readings.
             </p>
-            <ul style="list-style:none;padding:0;margin-top:var(--space-md);font-size:var(--text-sm);color:var(--color-text-muted);line-height:2;">
-              <li><strong style="color:var(--color-text);">Interface:</strong> I2C at address 0x70</li>
-              <li><strong style="color:var(--color-text);">Bus:</strong> I2C0 (SCL GPIO_7, SDA GPIO_6)</li>
-              <li><strong style="color:var(--color-text);">Mode:</strong> High repeatability + CRC-8</li>
-              <li><strong style="color:var(--color-text);">Temp Range:</strong> -45&deg;C to +130&deg;C</li>
-              <li><strong style="color:var(--color-text);">Humidity:</strong> 0&ndash;100% RH</li>
-              <li><strong style="color:var(--color-text);">Conversion:</strong> T = -45 + 175 &times; (raw/65536)</li>
+            <ul class="spec-list">
+              <li><strong>Interface:</strong> I2C at address 0x70</li>
+              <li><strong>Bus:</strong> I2C0 (SCL GPIO_7, SDA GPIO_6)</li>
+              <li><strong>Mode:</strong> High repeatability + CRC-8</li>
+              <li><strong>Temp Range:</strong> -45&deg;C to +130&deg;C</li>
+              <li><strong>Humidity:</strong> 0&ndash;100% RH</li>
+              <li><strong>Conversion:</strong> T = -45 + 175 &times; (raw/65536)</li>
             </ul>
           </div>
 
@@ -126,18 +123,18 @@
               <path d="M15 2.5c5 3.5 5 16 0 19"/>
             </svg>
             <h3 class="card__title">Ultrasonic Distance Sensor</h3>
-            <span class="badge badge--secondary" style="margin-bottom:var(--space-sm);">UART Interface</span>
+            <span class="badge badge--secondary">UART Interface</span>
             <p class="card__text">
               Precision ultrasonic range finder connected via UART for proximity detection and distance measurement.
               Used to detect fish proximity and rod tip deflection events with configurable distance thresholds.
             </p>
-            <ul style="list-style:none;padding:0;margin-top:var(--space-md);font-size:var(--text-sm);color:var(--color-text-muted);line-height:2;">
-              <li><strong style="color:var(--color-text);">Interface:</strong> UART1 (TX GPIO_30, RX GPIO_29)</li>
-              <li><strong style="color:var(--color-text);">Baud Rate:</strong> 9600, 8N1</li>
-              <li><strong style="color:var(--color-text);">Frame:</strong> 4 bytes (0xFF header + 2B distance + checksum)</li>
-              <li><strong style="color:var(--color-text);">Encoding:</strong> Big-endian, millimeter resolution</li>
-              <li><strong style="color:var(--color-text);">Very Near:</strong> &lt; 100 mm</li>
-              <li><strong style="color:var(--color-text);">Near:</strong> &lt; 300 mm</li>
+            <ul class="spec-list">
+              <li><strong>Interface:</strong> UART1 (TX GPIO_30, RX GPIO_29)</li>
+              <li><strong>Baud Rate:</strong> 9600, 8N1</li>
+              <li><strong>Frame:</strong> 4 bytes (0xFF header + 2B distance + checksum)</li>
+              <li><strong>Encoding:</strong> Big-endian, millimeter resolution</li>
+              <li><strong>Very Near:</strong> &lt; 100 mm</li>
+              <li><strong>Near:</strong> &lt; 300 mm</li>
             </ul>
           </div>
         </div>
@@ -218,12 +215,12 @@
         </div>
 
         <!-- Communication Protocol Details -->
-        <div style="margin-top:var(--space-xl);">
+        <div>
           <div class="grid grid--2">
             <div class="card">
               <h3 class="card__title">I2C Bus Configuration</h3>
               <p class="card__text">The SHT4x temperature and humidity sensor communicates over I2C0 at the 7-bit slave address <code>0x70</code>. The firmware uses high repeatability measurement mode (command <code>0xFD</code>) which returns 6 bytes: 2 bytes temperature raw, 1 byte CRC, 2 bytes humidity raw, 1 byte CRC. Conversion formulas are applied after CRC-8 validation passes.</p>
-              <div style="margin-top:var(--space-md);padding:var(--space-md);background:var(--color-bg);border-radius:var(--border-radius);font-family:var(--font-mono);font-size:var(--text-xs);overflow-x:auto;">
+              <div class="code-snippet">
                 <div style="color:var(--color-text-muted);">/* SHT4x conversion formulas */</div>
                 <div><span style="color:var(--color-accent);">T_Celsius</span> = -45 + 175 * (raw_temp / 65536.0);</div>
                 <div><span style="color:var(--color-accent);">RH_percent</span> = -6 + 125 * (raw_hum / 65536.0);</div>
@@ -232,7 +229,7 @@
             <div class="card">
               <h3 class="card__title">UART Frame Protocol</h3>
               <p class="card__text">The ultrasonic sensor transmits distance data over UART1 at 9600 baud (8 data bits, no parity, 1 stop bit). Each frame is exactly 4 bytes: a fixed header byte <code>0xFF</code>, followed by 2 bytes of distance in big-endian format (millimeter resolution), and a trailing checksum byte for integrity verification.</p>
-              <div style="margin-top:var(--space-md);padding:var(--space-md);background:var(--color-bg);border-radius:var(--border-radius);font-family:var(--font-mono);font-size:var(--text-xs);overflow-x:auto;">
+              <div class="code-snippet">
                 <div style="color:var(--color-text-muted);">/* 4-byte UART frame structure */</div>
                 <div>[0xFF] [DIST_H] [DIST_L] [CHECKSUM]</div>
                 <div style="margin-top:var(--space-xs);color:var(--color-text-muted);">/* Distance in mm (big-endian) */</div>

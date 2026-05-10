@@ -13,7 +13,7 @@
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--color-border-strong);
 }
 
 .dashboard-embed img {
@@ -28,21 +28,21 @@
   margin-top: var(--space-lg);
 }
 
-.tech-item {
+.tech-pill {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: 0.6rem 1rem;
+  padding: var(--space-sm) var(--space-md);
   background: var(--color-surface);
   border-radius: var(--border-radius);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--color-border);
   box-shadow: var(--shadow-xs);
   font-size: var(--text-sm);
   font-weight: 500;
   transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
 }
 
-.tech-item:hover {
+.tech-pill:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
   border-color: rgba(var(--color-accent-rgb), 0.2);
@@ -60,7 +60,7 @@
   padding: var(--space-lg);
   background: var(--color-surface);
   border-radius: var(--border-radius-lg);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--color-border);
   box-shadow: var(--shadow-xs);
   transition: transform var(--transition-base), box-shadow var(--transition-base);
   position: relative;
@@ -87,7 +87,7 @@
   font-weight: 700;
   font-family: var(--font-mono);
   color: var(--color-primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-sm);
 }
 
 .task-card__meta {
@@ -115,14 +115,14 @@
   padding: var(--space-lg);
   background: var(--color-surface);
   border-radius: var(--border-radius);
-  border: 1px solid rgba(153, 0, 0, 0.1);
+  border: 1px solid rgba(var(--color-secondary-rgb), 0.1);
   box-shadow: var(--shadow-xs);
   text-align: center;
   transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
 .safety-card:hover {
-  border-color: rgba(153, 0, 0, 0.25);
+  border-color: rgba(var(--color-secondary-rgb), 0.25);
   box-shadow: var(--shadow-md);
 }
 
@@ -130,7 +130,7 @@
   font-size: var(--text-sm);
   font-weight: 700;
   color: var(--color-secondary);
-  margin-bottom: 0.35rem;
+  margin-bottom: var(--space-xs);
 }
 
 .safety-card__desc {
@@ -160,15 +160,15 @@
 
 .task-summary-table th,
 .task-summary-table td {
-  padding: 0.75rem 1rem;
+  padding: var(--space-sm) var(--space-md);
   text-align: left;
   font-size: var(--text-sm);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .task-summary-table th {
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-white);
   font-weight: 600;
   font-size: var(--text-xs);
   text-transform: uppercase;
@@ -179,6 +179,58 @@
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   background: rgba(var(--color-primary-rgb), 0.04);
-  padding: 0.15rem 0.4rem;
-  border-radius: 4px;
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--border-radius-sm);
+}
+
+/* Utility: extracted from inline styles */
+.section--flush { padding-block: 0; }
+.tech-stack--center { justify-content: center; margin-top: var(--space-xl); }
+.task-card--spaced { margin-bottom: var(--space-lg); }
+.section-heading {
+  margin-bottom: var(--space-sm);
+  font-size: var(--text-lg);
+}
+.text-block { margin-bottom: var(--space-md); }
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+/* ── Software page: dark code-block background ── */
+body[data-page="software"] {
+  background: #0F172A;
+}
+body[data-page="software"] .page-hero {
+  background: linear-gradient(160deg, #0F172A 0%, #0c1424 50%, #0a1020 100%);
+}
+body[data-page="software"] .page-hero::after {
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0,0,0,0.5) 5%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0,0,0,0.5) 5%, transparent 70%);
+}
+body[data-page="software"] .page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 48px,
+      rgba(56, 189, 248, 0.02) 48px,
+      rgba(56, 189, 248, 0.02) 49px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 8px,
+      rgba(99, 102, 241, 0.015) 8px,
+      rgba(99, 102, 241, 0.015) 9px
+    );
+  pointer-events: none;
 }
