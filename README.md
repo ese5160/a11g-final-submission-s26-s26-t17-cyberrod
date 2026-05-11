@@ -13,7 +13,17 @@
 
 **GitHub Repository URL:** [https://github.com/ese5160/a11g-final-submission-s26-s26-t17-cyberrod](https://github.com/ese5160/a11g-final-submission-s26-s26-t17-cyberrod)
 
-**Project Website:** [https://cyberrob.pages.dev](https://cyberrob.pages.dev)
+---
+
+## 🚀 🌟 LIVE PROJECT WEBSITE 🌟 🚀
+
+### 👉 **[https://cyberrob.pages.dev](https://cyberrob.pages.dev)** 👈
+
+> ⭐ **This is our most important asset — the live showcase of our entire project** ⭐
+> 
+> ✨ Full system demonstration, interactive architecture diagrams, hardware photos, software dashboard, team bios, and video demo — all available at the link above!
+
+---
 
 ---
 
@@ -123,22 +133,36 @@ The current prototype is a monitoring system without physical actuators. The pri
 
 ### Next Steps & Takeaways
 
-**Steps needed to finish or improve this project:**
-1. **Mechanical enclosure**: Design and 3D-print a waterproof enclosure for the Si917 board and sensors, suitable for outdoor fishing environments.
-2. **Custom PCB fabrication**: Finalize the [Altium PCB design](https://upenn-eselabs.365.altium.com/designs/94E58069-1172-40BE-8958-F3CC298ED1A4#design) with proper power regulation, sensor connectors, and mounting holes.
-3. **Battery power**: Replace USB power with a rechargeable LiPo battery pack with voltage regulation for portable field operation.
-4. **Database integration**: Add InfluxDB or SQLite to Node-RED for persistent storage and historical trend analysis.
-5. **Mobile-responsive dashboard**: Optimize the Node-RED dashboard for mobile viewing, since anglers would primarily use their phones to check the dashboard.
-6. **Additional sensors**: Integrate a water temperature probe and light sensor for more comprehensive environmental monitoring.
-7. **TLS encryption**: Secure the MQTT connection with TLS certificates for production deployment.
+## 📋 Project Roadmap: Next Steps
 
-**What we learned in ESE5160:**
-- **Embedded firmware development**: Writing production-quality C firmware on ARM Cortex-M4F with FreeRTOS — task management, inter-task communication, stack sizing, and watchdog design.
-- **IoT communication protocols**: Understanding MQTT publish/subscribe patterns, QoS levels, broker configuration, and the tradeoffs between MQTT and other IoT protocols.
-- **Cloud infrastructure**: Deploying and managing Azure VMs, configuring MQTT brokers, and building Node-RED dashboards for real-time data visualization.
-- **OTA firmware updates**: Implementing over-the-air update mechanisms using HTTP OTAF, understanding bootloader behavior, and handling update failures gracefully.
-- **System integration**: The end-to-end challenge of making firmware, wireless connectivity, cloud infrastructure, and web dashboards work together as a cohesive system.
-- **Hardware-software co-design**: Understanding how sensor interfaces (I2C, UART), pin multiplexing, and bus configuration affect firmware architecture decisions.
+> 🔧 **Future Work Roadmap** — Evolving CyberRod from Prototype to Product
+
+| # | Improvement | Details | Priority |
+|---|------------|---------|----------|
+| 1 | 🛡️ Mechanical Enclosure | Design and 3D-print a waterproof IP54-rated enclosure for outdoor fishing environments | ⭐⭐⭐ High |
+| 2 | 🔌 Custom PCB Fabrication | Finalize the [Altium PCB design](https://upenn-eselabs.365.altium.com/designs/94E58069-1172-40BE-8958-F3CC298ED1A4#design) with proper power regulation, sensor connectors, and mounting holes | ⭐⭐⭐ High |
+| 3 | 📦 **System Miniaturization** | Compact all components into a smaller form factor — integrate Si917, sensors, and power management into a pocket-sized module for discreet rod mounting | ⭐⭐⭐ High |
+| 4 | 💾 Database Integration | Add InfluxDB or SQLite to Node-RED for persistent storage and historical trend analysis | ⭐⭐ Medium |
+| 5 | 📱 Mobile-Responsive Dashboard | Optimize the Node-RED dashboard for mobile viewing since anglers primarily check data via phones | ⭐⭐ Medium |
+| 6 | 🌡️ Additional Sensors | Integrate water temperature probe and light sensor for comprehensive environmental monitoring | ⭐ Low |
+| 7 | 🔒 TLS Encryption | Secure the MQTT connection with TLS certificates for production deployment | ⭐ Low |
+
+---
+
+## ⭐ Core Asset: Key Skills Acquired in ESE5160
+
+> 🚨 **This is one of our most valuable assets** — The following skill stack represents our complete learning outcomes from this course
+
+| Skill Domain | Capabilities |
+|-------------|--------------|
+| **Embedded Firmware Development** | Writing production-quality C code on ARM Cortex-M4F (FreeRTOS) — task management, inter-task communication, stack sizing, and hardware watchdog design |
+| **IoT Communication Protocols** | Deep understanding of MQTT pub/sub patterns, QoS levels, broker configuration, and tradeoffs between MQTT and other IoT protocols |
+| **Cloud Infrastructure** | Deploying and managing Azure VMs, configuring Mosquitto MQTT Brokers, and building Node-RED real-time data visualization dashboards |
+| **OTA Firmware Updates** | Implementing over-the-air update mechanisms using HTTP OTAF v2, understanding bootloader behavior, and gracefully handling update failures |
+| **System Integration** | End-to-end challenge — making firmware, wireless connectivity, cloud infrastructure, and web dashboards work together as a cohesive system |
+| **Hardware-Software Co-Design** | Understanding how sensor interfaces (I2C/UART), pin multiplexing, and bus configuration affect firmware architecture decisions |
+
+---
 
 ### Project Links
 
@@ -202,8 +226,8 @@ The current prototype is a monitoring system without physical actuators. The pri
 
 | Photo | Description |
 |-------|-------------|
-| ![PCBA Top](docs/assets/images/hardware/pcba-top.jpg) | Custom PCBA top view |
-| ![PCBA Bottom](docs/assets/images/hardware/pcba-bottom.jpg) | Custom PCBA bottom view |
+| ![PCBA Top](docs/assets/images/hardware/pcba-top.png) | Custom PCBA top view |
+| ![PCBA Bottom](docs/assets/images/hardware/pcba-bottom.png) | Custom PCBA bottom view |
 | ![Thermal](docs/assets/images/hardware/thermal-camera.jpg) | Thermal camera image of board running under load |
 
 ### Altium Board Design
@@ -222,13 +246,6 @@ The current prototype is a monitoring system without physical actuators. The pri
 | ![Node-RED Dashboard](docs/assets/images/software/nodered-dashboard.png) | Node-RED FlowFuse Dashboard — real-time sensor gauges and charts with nautical theme |
 | ![Node-RED Backend](docs/assets/images/software/nodered-backend.png) | Node-RED backend flow — MQTT subscriber nodes, data processing, and dashboard widgets |
 
-### System Block Diagram
-
-| Diagram | Description |
-|---------|-------------|
-| ![Block Diagram](docs/assets/images/architecture/system-block-diagram.png) | System-level block diagram showing end-to-end data flow from sensors to cloud dashboard |
-
-> **Note:** All photos and screenshots are also displayed on the respective pages of our [project website](https://cyberrob.pages.dev): [Hardware](https://cyberrob.pages.dev/hardware.html), [Software](https://cyberrob.pages.dev/software.html), [Architecture](https://cyberrob.pages.dev/architecture.html), and [Demo](https://cyberrob.pages.dev/demo.html).
 
 ---
 
@@ -271,17 +288,3 @@ The current prototype is a monitoring system without physical actuators. The pri
   - HTTP OTA firmware server (port 80)
   - Node-RED v4.1.8 dashboard (port 1880)
 
-### Open Source References
-
-| Library/Tool | Source | License | Usage |
-|-------------|--------|---------|-------|
-| FreeRTOS | Amazon FreeRTOS | MIT | Real-time operating system kernel |
-| Simplicity SDK | Silicon Labs | SLA | Si917 peripheral drivers and Wi-Fi stack |
-| WiseConnect 3 | Silicon Labs | SLA | Si917 wireless connectivity SDK |
-| Mosquitto | Eclipse Foundation | EPL-2.0 | MQTT broker on Azure VM |
-| Node-RED | OpenJS Foundation | Apache 2.0 | Dashboard flow engine |
-| FlowFuse Dashboard | FlowFuse | Apache 2.0 | Dashboard 2.0 widget library |
-| GSAP | GreenSock | Standard | Website scroll animations |
-| AOS | Michal Sajnóg | MIT | Website scroll-reveal animations |
-
-> **Note:** All Silicon Labs SDK code (Simplicity SDK, WiseConnect 3) is used under the Silicon Labs License Agreement (SLA) as provided with the development kit. No modifications were made to the SDK source code.
