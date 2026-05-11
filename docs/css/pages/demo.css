@@ -165,12 +165,162 @@
   .screenshot-grid { grid-template-columns: repeat(2, 1fr); }
   .metrics-grid { grid-template-columns: repeat(2, 1fr); }
   .screenshots-grid { grid-template-columns: 1fr; }
+  .dashboard-grid { grid-template-columns: 1fr; }
   .demo-step { flex-direction: column; gap: var(--space-md); }
 }
 
 @media (max-width: 480px) {
   .screenshot-grid { grid-template-columns: 1fr; }
   .metrics-grid { grid-template-columns: 1fr; }
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+/* Dashboard Link Card */
+.dashboard-link-card {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  background: linear-gradient(135deg, #0a1628 0%, #0f1d35 50%, #0a1225 100%);
+  border: 1px solid rgba(100, 200, 255, 0.1);
+  border-radius: var(--border-radius-xl);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.dashboard-link-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25), 0 0 60px rgba(100, 200, 255, 0.06);
+  border-color: rgba(100, 200, 255, 0.25);
+}
+
+.dashboard-link-card__visual {
+  flex-shrink: 0;
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.dashboard-link-card__icon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  color: rgba(100, 200, 255, 0.25);
+  z-index: 1;
+}
+
+.dashboard-link-card:hover .dashboard-link-card__icon-grid {
+  color: rgba(100, 200, 255, 0.4);
+}
+
+.dashboard-link-card__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(100, 200, 255, 0.08) 0%, transparent 70%);
+  animation: dashboardPulse 3s ease-in-out infinite;
+}
+
+@keyframes dashboardPulse {
+  0%, 100% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+.dashboard-link-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-md);
+  min-width: 0;
+}
+
+.dashboard-link-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.dashboard-link-card__badge {
+  font-size: var(--text-2xs);
+  font-weight: 800;
+  letter-spacing: var(--tracking-ultra);
+  padding: 4px 10px;
+  color: #fff;
+  border-radius: var(--border-radius-sm);
+}
+
+.dashboard-link-card__badge--live {
+  background: rgba(153, 0, 0, 0.9);
+  animation: liveGlow 2s ease-in-out infinite;
+}
+
+@keyframes liveGlow {
+  0%, 100% { box-shadow: 0 0 4px rgba(153, 0, 0, 0.4); }
+  50% { box-shadow: 0 0 12px rgba(153, 0, 0, 0.7); }
+}
+
+.dashboard-link-card__badge--sim {
+  background: rgba(109, 174, 69, 0.85);
+  animation: simGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes simGlow {
+  0%, 100% { box-shadow: 0 0 4px rgba(109, 174, 69, 0.3); }
+  50% { box-shadow: 0 0 12px rgba(109, 174, 69, 0.6); }
+}
+
+.dashboard-link-card__title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: var(--tracking-normal);
+}
+
+.dashboard-link-card__desc {
+  font-size: var(--text-sm);
+  color: rgba(148, 163, 184, 0.9);
+  line-height: var(--leading-relaxed);
+  max-width: 560px;
+}
+
+.dashboard-link-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-sky);
+  transition: gap var(--transition-base), color var(--transition-base);
+}
+
+.dashboard-link-card:hover .dashboard-link-card__cta {
+  gap: var(--space-md);
+  color: var(--color-sky-dark);
+}
+
+@media (max-width: 768px) {
+  .dashboard-link-card {
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+  }
+  .dashboard-link-card__visual {
+    width: 100%;
+    height: 100px;
+  }
 }
 
 /* ── Demo page: dark with red pulse ── */

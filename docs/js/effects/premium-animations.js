@@ -3,15 +3,19 @@
  * Requires GSAP and ScrollTrigger loaded via CDN (global variables).
  */
 export function initPremiumAnimations() {
-  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    document.querySelectorAll('.flow-card, .timeline__item, .card, .team-card').forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+    return;
+  }
 
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.config({ limitCallbacks: true });
 
+  gsap.defaults({ ease: 'power3.out' });
+
   textSplitReveal();
   cardStaggerReveal();
   timelineItems();
-  flowCards();
   demoSteps();
   heroContent();
   sectionSubtitles();
@@ -80,9 +84,8 @@ function cardStaggerReveal() {
       if (!children.length) return;
 
       gsap.from(children, {
-        y: 60,
+        y: 50,
         opacity: 0,
-        scale: 0.95,
         stagger: 0.08,
         duration: 0.8,
         ease: 'power3.out',
@@ -118,26 +121,8 @@ function timelineItems() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  4. Flow Cards                                                      */
+/*  4. Flow Cards — handled by cardStaggerReveal('.architecture-flow') */
 /* ------------------------------------------------------------------ */
-function flowCards() {
-  const cards = document.querySelectorAll('.flow-card');
-  if (!cards.length) return;
-
-  gsap.from(cards, {
-    y: 40,
-    opacity: 0,
-    scale: 0.95,
-    stagger: 0.1,
-    duration: 0.7,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: cards[0].parentElement || cards[0],
-      start: 'top 80%',
-      toggleActions: 'play none none none',
-    },
-  });
-}
 
 /* ------------------------------------------------------------------ */
 /*  5. Demo Steps                                                      */
@@ -164,8 +149,7 @@ function demoSteps() {
 /*  6. Hero Content (home page only)                                   */
 /* ------------------------------------------------------------------ */
 function heroContent() {
-  const body = document.body;
-  if (!body || body.dataset.page !== 'home') return;
+  if (document.documentElement.dataset.page !== 'home') return;
 
   const heroEls = [
     '.hero__badge',
@@ -214,8 +198,7 @@ function sectionSubtitles() {
 /*  8. Page Hero Elements (non-home pages)                             */
 /* ------------------------------------------------------------------ */
 function pageHeroElements() {
-  const body = document.body;
-  if (!body || body.dataset.page === 'home') return;
+  if (document.documentElement.dataset.page === 'home') return;
 
   const pageHeroEls = [
     '.page-hero__title',
@@ -257,7 +240,7 @@ function heroParallax() {
         trigger: el,
         start: 'top top',
         end: 'bottom top',
-        scrub: true,
+        scrub: 1,
       },
     });
   });

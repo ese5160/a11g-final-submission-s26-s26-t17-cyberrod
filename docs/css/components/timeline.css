@@ -1,6 +1,6 @@
 .timeline {
   position: relative;
-  padding-left: 3.5rem;
+  padding-left: var(--space-xl);
   max-width: 700px;
   margin-top: var(--space-xl);
 }
@@ -17,7 +17,7 @@
 
 .timeline__item {
   position: relative;
-  padding-bottom: 2.5rem;
+  padding-bottom: var(--space-lg);
 }
 
 .timeline__item:last-child {
@@ -34,7 +34,7 @@
   background: var(--color-surface);
   border: 2.5px solid var(--color-accent);
   z-index: 1;
-  transition: all 0.4s var(--ease-out-expo);
+  transition: background var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
 }
 
 .timeline__dot::after {
@@ -43,12 +43,12 @@
   inset: 3px;
   border-radius: 50%;
   background: transparent;
-  transition: background 0.3s ease;
+  transition: background var(--transition-fast);
 }
 
 .timeline__item:hover .timeline__dot {
   background: var(--color-accent);
-  box-shadow: 0 0 20px rgba(109, 174, 69, 0.3), 0 0 6px rgba(109, 174, 69, 0.5);
+  box-shadow: 0 0 20px rgba(var(--color-accent-rgb), 0.3), 0 0 6px rgba(var(--color-accent-rgb), 0.5);
   transform: scale(1.15);
 }
 
@@ -60,20 +60,20 @@
   background: var(--color-surface);
   padding: var(--space-lg);
   border-radius: var(--border-radius-lg);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  transition: all 0.4s var(--ease-out-expo);
+  border: 1px solid var(--color-border);
+  transition: box-shadow var(--transition-base), border-color var(--transition-base), transform var(--transition-base);
 }
 
 .timeline__item:hover .timeline__content {
   box-shadow: var(--shadow-lg);
-  border-color: rgba(109, 174, 69, 0.1);
+  border-color: rgba(var(--color-accent-rgb), 0.1);
   transform: translateX(4px);
 }
 
 .timeline__content h4 {
   font-size: var(--text-lg);
   font-weight: 700;
-  margin-bottom: 0.35rem;
+  margin-bottom: var(--space-xs);
   color: var(--color-primary);
   letter-spacing: var(--tracking-normal);
 }

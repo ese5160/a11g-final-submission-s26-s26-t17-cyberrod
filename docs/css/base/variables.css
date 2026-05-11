@@ -5,12 +5,18 @@
   --color-primary-light: #1a3a7a;
   --color-primary-rgb: 1, 31, 91;
   --color-secondary: #990000;
+  --color-secondary-rgb: 153, 0, 0;
   --color-accent: #6DAE45;
   --color-accent-light: #8cc963;
   --color-accent-dark: #4f8a2a;
   --color-accent-rgb: 109, 174, 69;
   --color-sky: #64C8FF;
   --color-sky-rgb: 100, 200, 255;
+  --color-sky-dark: #0284C7;
+
+  /* White — explicit token for dark-surface text */
+  --color-white: #FFFFFF;
+  --color-white-rgb: 255, 255, 255;
 
   /* Neutrals — warmer, more refined */
   --color-bg: #F7F7FA;
@@ -20,22 +26,21 @@
   --color-text-muted: #475569;
   --color-text-light: #94A3B8;
 
-  /* Dark surfaces — deeper, richer */
+  /* Dark surfaces — code, hero backgrounds */
   --color-dark-bg: #030B1A;
-  --color-dark-surface: #081428;
-  --color-dark-elevated: #0C1D38;
+  --color-code-bg: #0F172A;
+  --color-code-text: #E2E8F0;
 
-  /* Semantic */
-  --color-success: #10B981;
-  --color-warning: #F59E0B;
-  --color-error: #EF4444;
+  /* Semantic borders — systematic opacity scale */
+  --color-border: rgba(0, 0, 0, 0.04);
+  --color-border-light: rgba(0, 0, 0, 0.03);
+  --color-border-strong: rgba(0, 0, 0, 0.06);
 
   /* Gradients — premium depth */
   --gradient-hero: linear-gradient(165deg, #020810 0%, #0a1a3f 30%, #081230 60%, #030810 100%);
   --gradient-dark: linear-gradient(160deg, #030B1A 0%, #0a1a3f 50%, #061230 100%);
   --gradient-accent: linear-gradient(135deg, var(--color-accent), #4ADE80);
   --gradient-sky: linear-gradient(135deg, var(--color-sky), #818CF8);
-  --gradient-warm: linear-gradient(135deg, #F59E0B, #EF4444);
 
   /* ── Spacing scale — 8px grid ── */
   --space-2xs: 0.125rem;
@@ -47,11 +52,18 @@
   --space-2xl: 5rem;
   --space-3xl: 8rem;
   --space-section: clamp(5rem, 10vw, 8rem);
+  --space-section-sm: clamp(3rem, 6vw, 5rem);
+  --space-section-lg: clamp(6rem, 12vw, 10rem);
+
+  /* ── Gutters ── */
+  --gutter: clamp(1.5rem, 4vw, 3rem);
+  --gutter-narrow: clamp(1rem, 2vw, 1.5rem);
 
   /* ── Typography — editorial scale ── */
   --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
+  --text-2xs: 0.65rem;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -64,21 +76,28 @@
   --text-6xl: 4.5rem;
   --text-7xl: 6rem;
   --text-display: clamp(4.5rem, 12vw, 10rem);
+  --text-hero: clamp(3.5rem, 8vw, 7rem);
+  --text-label: 0.7rem;
 
   --leading-tight: 1.05;
   --leading-snug: 1.25;
   --leading-normal: 1.6;
   --leading-relaxed: 1.8;
+  --leading-code: 1.7;
 
   --tracking-tight: -0.04em;
   --tracking-normal: -0.01em;
   --tracking-wide: 0.06em;
   --tracking-ultra: 0.14em;
+  --tracking-display: -0.05em;
 
   /* ── Layout ── */
   --max-width: 1200px;
   --max-width-narrow: 800px;
   --max-width-wide: 1400px;
+  --max-width-text: 65ch;
+  --max-width-hero-text: 900px;
+  --border-radius-sm: 4px;
   --border-radius: 8px;
   --border-radius-lg: 16px;
   --border-radius-xl: 24px;
@@ -87,12 +106,12 @@
   /* ── Transitions — refined easing ── */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 
   --transition-fast: 150ms var(--ease-out-expo);
   --transition-base: 300ms var(--ease-out-expo);
   --transition-slow: 500ms var(--ease-out-expo);
   --transition-spring: 600ms var(--ease-out-back);
+  --transition-reveal: 700ms var(--ease-out-expo);
 
   /* ── Shadows — layered with depth ── */
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
@@ -101,10 +120,10 @@
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.06), 0 4px 8px rgba(0, 0, 0, 0.03);
   --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.04);
   --shadow-2xl: 0 32px 80px rgba(0, 0, 0, 0.12), 0 16px 32px rgba(0, 0, 0, 0.06);
-  --shadow-accent: 0 4px 24px rgba(109, 174, 69, 0.15);
-  --shadow-primary: 0 4px 24px rgba(1, 31, 91, 0.12);
-  --shadow-glow-accent: 0 0 40px rgba(109, 174, 69, 0.08);
-  --shadow-glow-sky: 0 0 40px rgba(100, 200, 255, 0.06);
+  --shadow-accent: 0 4px 24px rgba(var(--color-accent-rgb), 0.15);
+  --shadow-primary: 0 4px 24px rgba(var(--color-primary-rgb), 0.12);
+  --shadow-glow-accent: 0 0 40px rgba(var(--color-accent-rgb), 0.08);
+  --shadow-glow-sky: 0 0 40px rgba(var(--color-sky-rgb), 0.06);
   --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.03);
 
   /* ── Glass ── */
@@ -116,14 +135,23 @@
   --z-base: 1;
   --z-overlay: 10;
   --z-nav: 100;
-  --z-modal: 200;
-  --z-toast: 300;
+  --z-modal: 2000;
+  --z-loader: 9999;
 
   /* ── Breakpoints (for JS reference) ── */
   --bp-sm: 640px;
   --bp-md: 768px;
   --bp-lg: 1024px;
   --bp-xl: 1280px;
+}
+
+/* Responsive typography adjustments */
+@media (max-width: 768px) {
+  :root {
+    --text-5xl: 2.5rem;
+    --text-6xl: 3rem;
+    --text-7xl: 3.5rem;
+  }
 }
 
 /* Custom cursor: hide native cursor */

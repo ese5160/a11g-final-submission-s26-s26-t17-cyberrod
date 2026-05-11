@@ -6,7 +6,7 @@
 
 .carousel__track {
   display: flex;
-  transition: transform 0.5s ease;
+  transition: transform var(--transition-slow);
 }
 
 .carousel__slide {
@@ -27,7 +27,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(var(--color-white-rgb), 0.9);
   border: none;
   cursor: pointer;
   display: flex;
@@ -39,7 +39,7 @@
 }
 
 .carousel__btn:hover {
-  background: #fff;
+  background: var(--color-white);
   box-shadow: var(--shadow-lg);
 }
 

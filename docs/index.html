@@ -93,7 +93,7 @@
       <div class="container">
         <div class="section__header">
           <h2 class="section-title">Core Capabilities</h2>
-          <p class="section__subtitle">Three integrated systems working together for intelligent fishing rod monitoring.</p>
+          <p class="section__subtitle">Four integrated systems working together for intelligent fishing rod monitoring.</p>
         </div>
         <div class="features__grid">
           <div class="card card--feature">
@@ -106,7 +106,7 @@
               </svg>
             </div>
             <h3 class="card__title">Smart Fish Detection</h3>
-            <p class="card__text">Ultrasonic distance sensor continuously monitors fish proximity, classifying targets as Near (&lt;300mm) or Very Near (&lt;100mm) with real-time state publishing.</p>
+            <p class="card__text">Ultrasonic distance sensor continuously monitors fish proximity, classifying targets as Near (&lt;1.2m) or Very Near (&lt;100mm) with real-time state publishing.</p>
           </div>
           <div class="card card--feature">
             <div class="card__icon-wrapper card__icon-wrapper--temp">
@@ -117,7 +117,7 @@
               </svg>
             </div>
             <h3 class="card__title">Environmental Monitoring</h3>
-            <p class="card__text">Sensirion SHT4x sensor provides precision temperature and humidity readings via I2C with CRC-8 validation, sampled every 3 seconds.</p>
+            <p class="card__text">Sensirion SHT4x sensor provides precision temperature and humidity readings via I2C with CRC-8 validation, sampled every 300ms.</p>
           </div>
           <div class="card card--feature">
             <div class="card__icon-wrapper card__icon-wrapper--cloud">
@@ -128,6 +128,17 @@
             </div>
             <h3 class="card__title">Azure Cloud Pipeline</h3>
             <p class="card__text">Full MQTT pipeline from Si917 MCU through Azure VM to Node-RED dashboard with real-time data streaming, OTA firmware updates, and persistent monitoring.</p>
+          </div>
+          <div class="card card--feature">
+            <div class="card__icon-wrapper">
+              <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3 class="card__title">IMU Motion Sensing</h3>
+            <p class="card__text">6-axis IMU sensor provides real-time acceleration and angular velocity data for rod motion analysis, detecting sudden jerks and vibrations that indicate fish bite events.</p>
           </div>
         </div>
       </div>
@@ -164,6 +175,10 @@
           <div class="tech-item">
             <span class="tech-item__name">SHT4x</span>
             <span class="tech-item__desc">Sensirion Temp & Humidity</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-item__name">IMU</span>
+            <span class="tech-item__desc">6-Axis Accel &amp; Gyro</span>
           </div>
           <div class="tech-item">
             <span class="tech-item__name">OTA</span>

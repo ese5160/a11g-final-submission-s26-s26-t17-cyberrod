@@ -76,7 +76,7 @@
       <div class="container">
         <div class="section__header">
           <h2 class="section-title">FreeRTOS Task Architecture</h2>
-          <p class="section__subtitle">Five concurrent tasks with priority-based preemptive scheduling ensure deterministic real-time behavior for fish detection, telemetry, and system reliability.</p>
+          <p class="section__subtitle">Concurrent tasks with priority-based preemptive scheduling ensure deterministic real-time behavior for fish detection, IMU sensing, telemetry, and system reliability.</p>
         </div>
 
         <!-- Task: app_watchdog -->
@@ -147,10 +147,25 @@
               <h3 class="card__title">temperature_upload_task</h3>
             </div>
             <span class="badge">Normal Priority</span>
-            <span class="badge">3072 stack | 3000 ms</span>
+            <span class="badge">3072 stack | 300 ms</span>
           </div>
           <p class="card__text">
-            Environmental telemetry uploader. Reads temperature and relative humidity from the SHT4x sensor over I2C every 3 seconds and publishes both values to their respective MQTT topics. The slower period is appropriate for environmental data, which changes gradually and does not require the high-frequency polling used by the ultrasonic fish detection task.
+            Environmental telemetry uploader. Reads temperature and relative humidity from the SHT4x sensor over I2C every 300ms and publishes both values to their respective MQTT topics. The period balances responsive telemetry with the gradual nature of environmental changes.
+          </p>
+        </div>
+
+        <!-- Task: imu_task -->
+        <div class="card task-card--spaced">
+          <div class="card__header-row">
+            <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            <div>
+              <h3 class="card__title">imu_task</h3>
+            </div>
+            <span class="badge">Normal Priority</span>
+            <span class="badge">2048 stack | 100 ms</span>
+          </div>
+          <p class="card__text">
+            Motion and acceleration sensing task. Reads 3-axis acceleration and 3-axis angular velocity from the IMU sensor over the shared I2C0 bus. Computes acceleration magnitude and detects sudden rod jerks or vibrations that may indicate fish bite events. Publishes acceleration data to MQTT for real-time dashboard visualization and post-session analysis.
           </p>
         </div>
       </div>
@@ -192,7 +207,11 @@ Format: string   (degrees Celsius, 2 decimal places)
 
 <span style="color:#89b4fa;"># SHT4x humidity reading</span>
 Topic:  <span style="color:#a6e3a1;">CyberRod/Humidity</span>
-Format: string   (%RH, 2 decimal places)</code></pre>
+Format: string   (%RH, 2 decimal places)
+
+<span style="color:#89b4fa;"># IMU acceleration data</span>
+Topic:  <span style="color:#a6e3a1;">CyberRod/Acceleration</span>
+Format: string   (X,Y,Z acceleration values)</code></pre>
             </div>
           </div>
 
@@ -369,6 +388,13 @@ Client ID: <span style="color:#cba6f7;">si917-devboard-cyberrod</span></code></p
                 <td><span class="badge">Normal</span></td>
                 <td>3000 ms</td>
                 <td>SHT4x I2C read, publish temperature + humidity</td>
+              </tr>
+              <tr>
+                <td><code>imu_task</code></td>
+                <td>2048</td>
+                <td><span class="badge">Normal</span></td>
+                <td>100 ms</td>
+                <td>IMU I2C read, acceleration &amp; gyro, publish rod motion</td>
               </tr>
             </tbody>
           </table>

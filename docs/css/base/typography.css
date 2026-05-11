@@ -27,9 +27,9 @@ pre {
   padding: var(--space-lg);
   border-radius: var(--border-radius-lg);
   overflow-x: auto;
-  background-color: #0F172A;
-  color: #E2E8F0;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: var(--color-code-bg);
+  color: var(--color-code-text);
+  border: 1px solid rgba(var(--color-white-rgb), 0.05);
 }
 
 .section-title {

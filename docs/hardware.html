@@ -137,6 +137,32 @@
               <li><strong>Near:</strong> &lt; 300 mm</li>
             </ul>
           </div>
+
+          <!-- IMU Sensor Card -->
+          <div class="card">
+            <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+              <line x1="17" y1="4" x2="17" y2="9" stroke-dasharray="2,2" opacity="0.6"/>
+              <line x1="17" y1="9" x2="20" y2="14" stroke-dasharray="2,2" opacity="0.6"/>
+              <line x1="17" y1="9" x2="14" y2="14" stroke-dasharray="2,2" opacity="0.6"/>
+            </svg>
+            <h3 class="card__title">IMU Sensor</h3>
+            <span class="badge badge--primary">6-Axis Inertial</span>
+            <p class="card__text">
+              6-axis inertial measurement unit with 3-axis accelerometer and 3-axis gyroscope.
+              Detects rod motion, vibration, and sudden jerks to identify fish bite events and rod tip acceleration patterns.
+            </p>
+            <ul class="spec-list">
+              <li><strong>Interface:</strong> I2C0 (shared bus with SHT4x)</li>
+              <li><strong>Function:</strong> Acceleration &amp; angular velocity</li>
+              <li><strong>Channels:</strong> 3-axis accel + 3-axis gyro</li>
+              <li><strong>Resolution:</strong> 16-bit ADC per axis</li>
+              <li><strong>Purpose:</strong> Rod motion &amp; bite detection</li>
+              <li><strong>Samplerate:</strong> Up to 1 kHz</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -184,7 +210,7 @@
                 <td>GPIO_7</td>
                 <td>HP (PORT 0)</td>
                 <td>LOC 0</td>
-                <td>SHT4x Temp &amp; Humidity Sensor</td>
+                <td>SHT4x Temp &amp; Humidity Sensor + IMU</td>
               </tr>
               <tr>
                 <td><code>I2C0 SDA</code></td>
@@ -192,10 +218,7 @@
                 <td>GPIO_6</td>
                 <td>HP (PORT 0)</td>
                 <td>LOC 3</td>
-                <td>SHT4x Temp &amp; Humidity Sensor</td>
-              </tr>
-              <tr>
-                <td><code>ULP_UART TX</code></td>
+                <td>SHT4x Temp &amp; Humidity Sensor + IMU</td>
                 <td>Debug Transmit</td>
                 <td>ULP_GPIO_11 / GPIO_75</td>
                 <td>ULP PORT</td>
@@ -219,7 +242,7 @@
           <div class="grid grid--2">
             <div class="card">
               <h3 class="card__title">I2C Bus Configuration</h3>
-              <p class="card__text">The SHT4x temperature and humidity sensor communicates over I2C0 at the 7-bit slave address <code>0x70</code>. The firmware uses high repeatability measurement mode (command <code>0xFD</code>) which returns 6 bytes: 2 bytes temperature raw, 1 byte CRC, 2 bytes humidity raw, 1 byte CRC. Conversion formulas are applied after CRC-8 validation passes.</p>
+              <p class="card__text">The I2C0 bus is shared between two devices. The SHT4x temperature and humidity sensor communicates at slave address <code>0x70</code> using high repeatability measurement mode (command <code>0xFD</code>), returning 6 bytes with CRC-8 validation. The IMU sensor also resides on the same I2C0 bus, providing 3-axis acceleration and 3-axis angular velocity data via its dedicated slave address.</p>
               <div class="code-snippet">
                 <div style="color:var(--color-text-muted);">/* SHT4x conversion formulas */</div>
                 <div><span style="color:var(--color-accent);">T_Celsius</span> = -45 + 175 * (raw_temp / 65536.0);</div>
@@ -296,6 +319,14 @@
               </tr>
               <tr>
                 <td>5</td>
+                <td>IMU Sensor</td>
+                <td>6-Axis IMU</td>
+                <td>I2C0 (shared bus)</td>
+                <td>1</td>
+                <td>3-axis accelerometer + 3-axis gyroscope for rod motion and bite detection</td>
+              </tr>
+              <tr>
+                <td>6</td>
                 <td>USB Debug Cable</td>
                 <td>Micro-USB</td>
                 <td>USB</td>
@@ -303,7 +334,7 @@
                 <td>Power supply and debug console connection via onboard EFM32 debugger</td>
               </tr>
               <tr>
-                <td>6</td>
+                <td>7</td>
                 <td>Breadboard / Jumper Wires</td>
                 <td>&mdash;</td>
                 <td>&mdash;</td>
@@ -330,8 +361,12 @@
             <p class="hardware-photo__caption">Si917 BRD2708A development board with I2C and UART sensor connections</p>
           </div>
           <div class="hardware-photo">
-            <img src="assets/images/hardware/sensor-wiring.jpg" alt="Close-up of SHT4x and ultrasonic sensor wiring on breadboard" loading="lazy">
-            <p class="hardware-photo__caption">SHT4x temperature sensor and ultrasonic distance sensor wiring detail</p>
+            <img src="assets/images/hardware/device-assembled.jpg" alt="Assembled CyberRod device in transparent spherical enclosure" loading="lazy">
+            <p class="hardware-photo__caption">Assembled CyberRod device in transparent spherical enclosure with internal LED indicator</p>
+          </div>
+          <div class="hardware-photo">
+            <img src="assets/images/hardware/sensor-wiring.jpg" alt="PCB close-up with MCU, Wi-Fi module, and sensor wiring" loading="lazy">
+            <p class="hardware-photo__caption">Si917 circular PCB with ARM Cortex-M4F, Wi-Fi module, and SD card slot</p>
           </div>
         </div>
       </div>

@@ -1,21 +1,22 @@
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
+/* Breadcrumb styles — shared base for light-bg pages */
+.breadcrumb--light {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
   margin-bottom: var(--space-lg);
 }
 
-.breadcrumb__separator {
-  font-size: var(--text-xs);
+.breadcrumb--light a {
+  color: var(--color-primary);
+  transition: color var(--transition-fast);
 }
 
-.breadcrumb__link:hover {
-  color: var(--color-primary);
+.breadcrumb--light a:hover {
+  color: var(--color-accent);
 }
 
-.breadcrumb__current {
-  color: var(--color-primary);
-  font-weight: 600;
+.breadcrumb--light span {
+  color: var(--color-text-light);
 }

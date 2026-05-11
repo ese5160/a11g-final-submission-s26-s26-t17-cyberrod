@@ -7,6 +7,7 @@
   { "name": "Node-RED + FlowFuse 2.0", "category": "dashboard", "description": "Real-time IoT dashboard with custom nautical-themed CSS and sensor visualization widgets" },
   { "name": "SHT4x (Sensirion)", "category": "sensor", "description": "I2C temperature & humidity sensor with CRC-8 validation, high repeatability mode" },
   { "name": "Ultrasonic Distance Sensor", "category": "sensor", "description": "UART-based proximity sensor with 4-byte frame protocol for fish detection (9600 baud)" },
-  { "name": "FreeRTOS (heap_4)", "category": "rtos", "description": "Real-time multitasking with 5 concurrent tasks, watchdog monitoring, and stack overflow protection" },
+  { "name": "IMU Sensor (6-Axis)", "category": "sensor", "description": "I2C 6-axis inertial measurement unit with 3-axis accelerometer and 3-axis gyroscope for rod motion and bite detection" },
+  { "name": "FreeRTOS (heap_4)", "category": "rtos", "description": "Real-time multitasking with 6 concurrent tasks, watchdog monitoring, and stack overflow protection" },
   { "name": "HTTP OTAF v2", "category": "ota", "description": "Over-the-air firmware updates triggered via MQTT, downloaded via HTTP from Azure VM" }
 ]

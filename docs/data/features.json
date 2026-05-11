@@ -13,5 +13,10 @@
     "icon": "cloud",
     "title": "Azure Cloud Pipeline",
     "description": "Full MQTT pipeline from Si917 MCU through Azure VM to Node-RED dashboard with real-time data streaming, OTA firmware updates, and persistent storage."
+  },
+  {
+    "icon": "motion",
+    "title": "IMU Motion Sensing",
+    "description": "6-axis IMU sensor provides real-time 3-axis acceleration and angular velocity data for rod motion analysis, detecting sudden jerks and vibrations indicating fish bite events."
   }
 ]

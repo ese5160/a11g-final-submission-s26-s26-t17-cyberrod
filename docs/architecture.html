@@ -95,32 +95,42 @@
 
             <!-- Ultrasonic Sensor Card -->
             <g filter="url(#shadow-box)">
-              <rect x="20" y="55" width="170" height="95" rx="12" fill="url(#grad-sensor)" stroke="#6DAE45" stroke-width="1.5"/>
+              <rect x="20" y="45" width="170" height="75" rx="12" fill="url(#grad-sensor)" stroke="#6DAE45" stroke-width="1.5"/>
               <!-- Sonar icon -->
-              <circle cx="52" cy="85" r="12" fill="none" stroke="#6DAE45" stroke-width="1" opacity="0.4"/>
-              <circle cx="52" cy="85" r="7" fill="none" stroke="#6DAE45" stroke-width="1" opacity="0.6"/>
-              <circle cx="52" cy="85" r="2.5" fill="#6DAE45"/>
-              <path d="M62 80c4 2 4 8 0 10" fill="none" stroke="#6DAE45" stroke-width="1" opacity="0.5"/>
-              <path d="M65 77c6 3 6 13 0 16" fill="none" stroke="#6DAE45" stroke-width="1" opacity="0.3"/>
-              <text x="130" y="82" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Ultrasonic</text>
-              <text x="130" y="98" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">UART1 | 9600 baud</text>
-              <text x="105" y="138" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">Fish Detection · 4-byte frames</text>
+              <circle cx="52" cy="75" r="10" fill="none" stroke="#6DAE45" stroke-width="1" opacity="0.4"/>
+              <circle cx="52" cy="75" r="5" fill="none" stroke="#6DAE45" stroke-width="1" opacity="0.6"/>
+              <circle cx="52" cy="75" r="2" fill="#6DAE45"/>
+              <text x="130" y="72" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Ultrasonic</text>
+              <text x="130" y="88" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">UART1 | 9600 baud</text>
+              <text x="105" y="112" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">Fish Detection · 4-byte frames</text>
+            </g>
+
+            <!-- IMU Sensor Card -->
+            <g filter="url(#shadow-box)">
+              <rect x="20" y="130" width="170" height="75" rx="12" fill="url(#grad-sensor)" stroke="#6DAE45" stroke-width="1.5"/>
+              <!-- IMU icon (motion lines) -->
+              <path d="M42 158l8-5v10z" fill="#6DAE45" opacity="0.6"/>
+              <line x1="52" y1="153" x2="52" y2="163" stroke="#6DAE45" stroke-width="1.2" opacity="0.5"/>
+              <line x1="56" y1="155" x2="62" y2="149" stroke="#6DAE45" stroke-width="1" opacity="0.4"/>
+              <line x1="56" y1="161" x2="62" y2="167" stroke="#6DAE45" stroke-width="1" opacity="0.4"/>
+              <line x1="56" y1="158" x2="65" y2="158" stroke="#6DAE45" stroke-width="1" opacity="0.4"/>
+              <text x="130" y="157" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">IMU Sensor</text>
+              <text x="130" y="173" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">I2C0 | 6-Axis</text>
+              <text x="105" y="197" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">Acceleration · Rod Motion</text>
             </g>
 
             <!-- SHT4x Sensor Card -->
             <g filter="url(#shadow-box)">
-              <rect x="20" y="175" width="170" height="95" rx="12" fill="url(#grad-sensor)" stroke="#6DAE45" stroke-width="1.5"/>
+              <rect x="20" y="215" width="170" height="75" rx="12" fill="url(#grad-sensor)" stroke="#6DAE45" stroke-width="1.5"/>
               <!-- Thermometer icon -->
-              <rect x="47" y="192" width="6" height="22" rx="3" fill="none" stroke="#6DAE45" stroke-width="1.2"/>
-              <circle cx="50" cy="220" r="5" fill="none" stroke="#6DAE45" stroke-width="1.2"/>
-              <circle cx="50" cy="220" r="2.5" fill="#6DAE45"/>
-              <line x1="50" y1="200" x2="50" y2="212" stroke="#6DAE45" stroke-width="2" stroke-linecap="round"/>
-              <!-- Humidity drops -->
-              <path d="M63 200c0-3 3.5-7 3.5-7s3.5 4 3.5 7a3.5 3.5 0 01-7 0z" fill="none" stroke="#38bdf8" stroke-width="0.8" opacity="0.6"/>
-              <path d="M63 215c0-2 2.5-5 2.5-5s2.5 3 2.5 5a2.5 2.5 0 01-5 0z" fill="#38bdf8" opacity="0.3"/>
-              <text x="130" y="202" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">SHT4x</text>
-              <text x="130" y="218" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">I2C0 | Addr 0x70</text>
-              <text x="105" y="258" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">Temp &amp; Humidity · CRC-8</text>
+              <rect x="47" y="232" width="6" height="16" rx="3" fill="none" stroke="#6DAE45" stroke-width="1.2"/>
+              <circle cx="50" cy="253" r="4" fill="none" stroke="#6DAE45" stroke-width="1.2"/>
+              <circle cx="50" cy="253" r="2" fill="#6DAE45"/>
+              <line x1="50" y1="237" x2="50" y2="247" stroke="#6DAE45" stroke-width="2" stroke-linecap="round"/>
+              <path d="M63 240c0-2 2.5-5 2.5-5s2.5 3 2.5 5a2.5 2.5 0 01-5 0z" fill="#38bdf8" opacity="0.3"/>
+              <text x="130" y="243" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">SHT4x</text>
+              <text x="130" y="259" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">I2C0 | Addr 0x70</text>
+              <text x="105" y="282" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">Temp &amp; Humidity · CRC-8</text>
             </g>
 
             <!-- MCU Card -->
@@ -147,7 +157,7 @@
               <text x="395" y="133" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9">BRD2708A Dev Board</text>
               <line x1="285" y1="145" x2="475" y2="145" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
               <text x="380" y="165" text-anchor="middle" fill="#6DAE45" font-size="12" font-weight="600">FreeRTOS</text>
-              <text x="380" y="182" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9">5 Tasks · Watchdog · heap_4</text>
+              <text x="380" y="182" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9">11 Tasks · Watchdog · heap_4</text>
               <!-- Task badges -->
               <rect x="288" y="195" width="58" height="16" rx="4" fill="rgba(109,174,69,0.15)" stroke="rgba(109,174,69,0.3)" stroke-width="0.5"/>
               <text x="317" y="206" text-anchor="middle" fill="#6DAE45" font-size="7" font-weight="500">Fish</text>
@@ -161,6 +171,8 @@
               <text x="381" y="229" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7" font-weight="500">WDT</text>
               <rect x="416" y="218" width="58" height="16" rx="4" fill="rgba(109,174,69,0.15)" stroke="rgba(109,174,69,0.3)" stroke-width="0.5"/>
               <text x="445" y="229" text-anchor="middle" fill="#6DAE45" font-size="7" font-weight="500">Wi-Fi</text>
+              <rect x="288" y="241" width="58" height="16" rx="4" fill="rgba(109,174,69,0.15)" stroke="rgba(109,174,69,0.3)" stroke-width="0.5"/>
+              <text x="317" y="252" text-anchor="middle" fill="#6DAE45" font-size="7" font-weight="500">IMU</text>
             </g>
 
             <!-- Azure VM Card -->
@@ -179,24 +191,28 @@
 
             <!-- MQTT Topics Box -->
             <g>
-              <rect x="575" y="215" width="210" height="105" rx="10" fill="rgba(109,174,69,0.05)" stroke="rgba(109,174,69,0.3)" stroke-width="1" stroke-dasharray="5,3"/>
-              <text x="680" y="236" text-anchor="middle" fill="#6DAE45" font-size="10" font-weight="600" letter-spacing="1">MQTT TOPICS</text>
-              <text x="595" y="255" fill="rgba(255,255,255,0.45)" font-size="9"><tspan fill="#6DAE45" font-size="8">▸</tspan> CyberRod/Fish_detection</text>
-              <text x="595" y="270" fill="rgba(255,255,255,0.45)" font-size="9"><tspan fill="#6DAE45" font-size="8">▸</tspan> CyberRod/Distance</text>
-              <text x="595" y="285" fill="rgba(255,255,255,0.45)" font-size="9"><tspan fill="#38bdf8" font-size="8">▸</tspan> CyberRod/Temperature</text>
-              <text x="595" y="300" fill="rgba(255,255,255,0.45)" font-size="9"><tspan fill="#38bdf8" font-size="8">▸</tspan> CyberRod/Humidity</text>
-              <text x="595" y="315" fill="rgba(255,255,255,0.3)" font-size="9"><tspan fill="#f87171" font-size="8">▸</tspan> CyberRod/Update</text>
+              <rect x="575" y="215" width="210" height="120" rx="10" fill="rgba(109,174,69,0.05)" stroke="rgba(109,174,69,0.3)" stroke-width="1" stroke-dasharray="5,3"/>
+              <text x="680" y="234" text-anchor="middle" fill="#6DAE45" font-size="10" font-weight="600" letter-spacing="1">MQTT TOPICS</text>
+              <text x="595" y="251" fill="rgba(255,255,255,0.45)" font-size="9"><tspan fill="#6DAE45" font-size="8">▸</tspan> CyberRod/Fish_detection</text>
+              <text x="595" y="265" fill="rgba(255,255,255,0.45)" font-size="9"><tspan fill="#6DAE45" font-size="8">▸</tspan> CyberRod/Distance</text>
+              <text x="595" y="279" fill="rgba(255,255,255,0.45)" font-size="9"><tspan fill="#38bdf8" font-size="8">▸</tspan> CyberRod/Temperature</text>
+              <text x="595" y="293" fill="rgba(255,255,255,0.45)" font-size="9"><tspan fill="#38bdf8" font-size="8">▸</tspan> CyberRod/Humidity</text>
+              <text x="595" y="307" fill="rgba(255,255,255,0.45)" font-size="9"><tspan fill="#6DAE45" font-size="8">▸</tspan> CyberRod/Acceleration</text>
+              <text x="595" y="321" fill="rgba(255,255,255,0.3)" font-size="9"><tspan fill="#f87171" font-size="8">▸</tspan> CyberRod/Update</text>
             </g>
 
             <!-- Connection Arrows -->
             <!-- Sensor → MCU -->
-            <path d="M190 100 C230 100 240 140 270 140" fill="none" stroke="url(#grad-arrow)" stroke-width="1.8" marker-end="url(#arr-g)"/>
-            <path d="M190 220 C230 220 240 180 270 180" fill="none" stroke="url(#grad-arrow)" stroke-width="1.8" marker-end="url(#arr-g)"/>
+            <path d="M190 85 C230 85 240 130 270 130" fill="none" stroke="url(#grad-arrow)" stroke-width="1.8" marker-end="url(#arr-g)"/>
+            <path d="M190 165 C230 165 240 160 270 160" fill="none" stroke="url(#grad-arrow)" stroke-width="1.8" marker-end="url(#arr-g)"/>
+            <path d="M190 250 C230 250 240 190 270 190" fill="none" stroke="url(#grad-arrow)" stroke-width="1.8" marker-end="url(#arr-g)"/>
             <!-- Arrow labels -->
-            <rect x="208" y="96" width="36" height="14" rx="3" fill="rgba(109,174,69,0.15)"/>
-            <text x="226" y="106" text-anchor="middle" fill="#6DAE45" font-size="8" font-weight="500">UART</text>
-            <rect x="208" y="212" width="28" height="14" rx="3" fill="rgba(109,174,69,0.15)"/>
-            <text x="222" y="222" text-anchor="middle" fill="#6DAE45" font-size="8" font-weight="500">I²C</text>
+            <rect x="208" y="81" width="36" height="14" rx="3" fill="rgba(109,174,69,0.15)"/>
+            <text x="226" y="91" text-anchor="middle" fill="#6DAE45" font-size="8" font-weight="500">UART</text>
+            <rect x="208" y="161" width="28" height="14" rx="3" fill="rgba(109,174,69,0.15)"/>
+            <text x="222" y="171" text-anchor="middle" fill="#6DAE45" font-size="8" font-weight="500">I²C</text>
+            <rect x="208" y="242" width="28" height="14" rx="3" fill="rgba(109,174,69,0.15)"/>
+            <text x="222" y="252" text-anchor="middle" fill="#6DAE45" font-size="8" font-weight="500">I²C</text>
 
             <!-- MCU → Cloud -->
             <path d="M490 130 C530 130 540 100 575 100" fill="none" stroke="url(#grad-arrow-red)" stroke-width="2" marker-end="url(#arr-r)"/>
@@ -213,13 +229,16 @@
 
             <!-- Animated data flow dots -->
             <circle r="2.5" fill="#6DAE45" filter="url(#glow-green)">
-              <animateMotion dur="2s" repeatCount="indefinite" path="M190 100 C230 100 240 140 270 140"/>
+              <animateMotion dur="2s" repeatCount="indefinite" path="M190 85 C230 85 240 130 270 130"/>
             </circle>
             <circle r="2.5" fill="#6DAE45" filter="url(#glow-green)">
               <animateMotion dur="2.5s" repeatCount="indefinite" path="M490 130 C530 130 540 100 575 100"/>
             </circle>
             <circle r="2" fill="#38bdf8" opacity="0.7">
-              <animateMotion dur="3s" repeatCount="indefinite" path="M190 220 C230 220 240 180 270 180"/>
+              <animateMotion dur="3s" repeatCount="indefinite" path="M190 250 C230 250 240 190 270 190"/>
+            </circle>
+            <circle r="2" fill="#6DAE45" opacity="0.6">
+              <animateMotion dur="2.8s" repeatCount="indefinite" path="M190 165 C230 165 240 160 270 160"/>
             </circle>
 
             <!-- Dashboard node -->
@@ -250,18 +269,19 @@
           <div class="flow-card">
             <div class="flow-card__number">01</div>
             <h3 class="flow-card__title">Sensing Layer</h3>
-            <p class="flow-card__text">Ultrasonic distance sensor (UART, 9600 baud) detects fish proximity with 4-byte frame protocol. SHT4x temperature/humidity sensor (I2C, addr 0x70) provides environmental data with CRC-8 validation.</p>
+            <p class="flow-card__text">Ultrasonic distance sensor (UART, 9600 baud) detects fish proximity with 4-byte frame protocol. SHT4x temperature/humidity sensor (I2C, addr 0x70) provides environmental data with CRC-8 validation. IMU sensor (I2C, shared bus) measures 3-axis acceleration and angular velocity for rod motion and bite detection.</p>
             <div class="flow-card__tags">
               <span class="badge badge--primary">UART1</span>
               <span class="badge badge--primary">I2C0</span>
               <span class="badge">GPIO_29/30</span>
               <span class="badge">GPIO_6/7</span>
+              <span class="badge badge--primary">IMU</span>
             </div>
           </div>
           <div class="flow-card">
             <div class="flow-card__number">02</div>
             <h3 class="flow-card__title">Processing Layer</h3>
-            <p class="flow-card__text">Si917 ARM Cortex-M4F runs FreeRTOS with 5 concurrent tasks: fish detection (20ms), temperature upload (3s), MQTT connection (100ms), OTA updates (200ms), and watchdog (1s). Hardware watchdog ensures system reliability.</p>
+            <p class="flow-card__text">Si917 ARM Cortex-M4F runs FreeRTOS with concurrent tasks: fish detection (20ms), IMU sensing (100ms), temperature upload (300ms), MQTT connection (100ms), OTA updates (200ms), and watchdog (1s). Hardware watchdog ensures system reliability.</p>
             <div class="flow-card__tags">
               <span class="badge badge--primary">FreeRTOS</span>
               <span class="badge badge--primary">Si917</span>
@@ -272,7 +292,7 @@
           <div class="flow-card">
             <div class="flow-card__number">03</div>
             <h3 class="flow-card__title">Communication Layer</h3>
-            <p class="flow-card__text">Si917 integrated Wi-Fi (802.11 b/g/n, WPA2) connects to local network. Custom MQTT 3.1.1 client over BSD sockets publishes to 4 topics with 16-deep queue and auto-reconnect. HTTP OTAF v2 for firmware updates.</p>
+            <p class="flow-card__text">Si917 integrated Wi-Fi (802.11 b/g/n, WPA2) connects to local network. Custom MQTT 3.1.1 client over BSD sockets publishes to 7 topics with 16-deep queue and auto-reconnect. HTTP OTAF v2 for firmware updates.</p>
             <div class="flow-card__tags">
               <span class="badge badge--secondary">Wi-Fi</span>
               <span class="badge badge--secondary">MQTT</span>
@@ -304,14 +324,14 @@
             <div class="timeline__dot"></div>
             <div class="timeline__content">
               <h4>1. Sensor Sampling</h4>
-              <p>Ultrasonic sensor sends 4-byte distance frames (header 0xFF + 2-byte distance + checksum) via UART at 9600 baud. SHT4x sensor reads temperature and humidity via I2C with high repeatability command (0x7866).</p>
+              <p>Ultrasonic sensor sends 4-byte distance frames (header 0xFF + 2-byte distance + checksum) via UART at 9600 baud. SHT4x sensor reads temperature and humidity via I2C with high repeatability command (0x7866). IMU sensor reads 3-axis acceleration and angular velocity over the shared I2C0 bus for rod motion analysis.</p>
             </div>
           </div>
           <div class="timeline__item">
             <div class="timeline__dot"></div>
             <div class="timeline__content">
               <h4>2. Data Processing</h4>
-              <p>Fish detection task classifies distance into states (0=none, 1=near &lt;300mm, 2=very near &lt;100mm). Temperature task converts raw readings: T = -45 + 175*(raw/65536), H = 100*(raw/65536).</p>
+              <p>Fish detection task classifies distance into states (0=none, 1=near &lt;1.2m, 2=very near &lt;100mm). Temperature task converts raw readings: T = -45 + 175*(raw/65536), H = -6 + 125*(raw/65536). IMU task computes acceleration magnitude and detects sudden rod jerks indicating potential fish bites.</p>
             </div>
           </div>
           <div class="timeline__item">

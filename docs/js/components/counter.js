@@ -15,8 +15,9 @@ export function initCounters() {
 }
 
 function animateCounter(el) {
-  const target = parseInt(el.dataset.counter, 10);
+  const target = parseFloat(el.dataset.counter);
   const suffix = el.dataset.suffix || '';
+  const decimals = parseInt(el.dataset.decimals || '0', 10);
   const duration = 1500;
   const start = performance.now();
 
@@ -24,7 +25,8 @@ function animateCounter(el) {
     const elapsed = now - start;
     const progress = Math.min(elapsed / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.floor(eased * target) + suffix;
+    const current = eased * target;
+    el.textContent = (decimals > 0 ? current.toFixed(decimals) : Math.floor(current)) + suffix;
 
     if (progress < 1) {
       requestAnimationFrame(update);

@@ -73,6 +73,7 @@ import('./effects/loader.js').then(m => {
     }
     if (page === 'demo') {
       import('./components/lightbox.js').then(l => l.initLightbox()).catch(() => {});
+      import('./components/counter.js').then(c => c.initCounters()).catch(() => {});
     }
     if (page === 'hardware') {
       import('./components/carousel.js').then(c => c.initCarousel()).catch(() => {});

@@ -1,6 +1,6 @@
 .site-footer {
   background: var(--gradient-dark);
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(var(--color-white-rgb), 0.4);
   padding: var(--space-section) var(--space-lg);
   text-align: center;
   position: relative;
@@ -12,8 +12,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 50% 60% at 25% 80%, rgba(109, 174, 69, 0.03), transparent),
-    radial-gradient(ellipse 40% 50% at 75% 20%, rgba(56, 189, 248, 0.02), transparent);
+    radial-gradient(ellipse 50% 60% at 25% 80%, rgba(var(--color-accent-rgb), 0.03), transparent),
+    radial-gradient(ellipse 40% 50% at 75% 20%, rgba(var(--color-sky-rgb), 0.02), transparent);
 }
 
 .footer__content {
@@ -24,14 +24,14 @@
 .footer__brand {
   font-size: var(--text-2xl);
   font-weight: 800;
-  color: #fff;
+  color: var(--color-white);
   margin-bottom: var(--space-sm);
   letter-spacing: var(--tracking-normal);
 }
 
 .footer__team {
   font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(var(--color-white-rgb), 0.25);
   margin-top: var(--space-sm);
   text-transform: uppercase;
   letter-spacing: var(--tracking-ultra);
@@ -50,5 +50,5 @@
 }
 
 .site-footer a:hover {
-  color: #fff;
+  color: var(--color-white);
 }
